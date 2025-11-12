@@ -134,7 +134,7 @@ body {
   color: white;
   width: 90%;
   max-width: 1200px; /* Ancho máximo (igual que el main de home) */
-  margin: 0 auto; /* <-- ESTA ES LA CORRECCIÓN PARA CENTRAR */
+  margin: 0 auto; /* <-- CORRECCIÓN PARA CENTRAR */
   padding: 8px 20px;
   box-sizing: border-box;
   
@@ -222,7 +222,7 @@ main p {
   font-weight: 500;
   font-size: 16px; 
   line-height: 1.6; 
-  text-align: justify; 
+  text-align: justify; /* Texto justificado (Desktop) */
 }
 
 /* Para el párrafo que está debajo del contenido flotante */
@@ -234,7 +234,7 @@ main .parrafo-inferior {
 
 
 /* =======================================================
-   FOOTER Y MENSAJE FINAL (Idénticos a home.css)
+   FOOTER Y MENSAJE FINAL (Estilos originales que me enviaste)
 ========================================================== */
 
 .mensaje-final {
@@ -252,13 +252,13 @@ main .parrafo-inferior {
   background-color: #113b64;
   color: white;
   font-weight: 800;
-  padding: 10px 0; /* Menos alto */
+  padding: 10px 0; /* Dejamos el padding de 10px que ya tenías */
   font-size: 22px;
 }
 div1{
   background-color: #f5b301;
   color: #113b64;
-  padding: 5px 40px; /* Menos alto */
+  padding: 5px 40px; /* Dejamos el padding de 5px que ya tenías */
   border-radius: 8px;
   display: inline-block;
   font-size: 20px;
@@ -281,7 +281,6 @@ div1:hover {
   
   .barra-superior { padding: 20px; justify-content: space-between; }
   
-  /* Botón Hamburguesa */
   .hamburger-button { 
     display: block; 
     position: absolute;
@@ -306,10 +305,8 @@ div1:hover {
     right: 0; 
     width: 60%; 
     
-    /* --- LA CORRECCIÓN DEFINITIVA --- */
-    height: auto; /* 1. Altura automática */
-    max-height: none; /* 2. Sin altura máxima */
-    /* (Asegúrate de que no haya NINGUNA otra línea 'height' o 'max-height' para este selector) */
+    height: auto; /* Altura automática */
+    max-height: none; /* Sin altura máxima */
     
     background-color: #113b64; 
     z-index: 1000; 
@@ -320,9 +317,10 @@ div1:hover {
     transform: translateX(100%); 
     transition: transform 0.3s ease-in-out; 
     
-    overflow-y: auto; /* Permitir scroll (buena práctica) */
+    overflow-y: auto; 
     overflow-x: hidden;
   }
+  
   .hamburger-toggle:checked ~ .menu {
     display: block !important; 
     transform: translateX(0); 
@@ -370,7 +368,6 @@ div1:hover {
     font-weight: 900;
   }
   
-  /* Título "Conócenos" móvil (Idéntico a home.css) */
   .frase-conocenos h2 {
     font-size: 18px; 
     padding: 10px 20px; 
@@ -385,31 +382,26 @@ div1:hover {
     padding: 0;
     margin: 0;
     display: block; 
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra de home.css */
-    border-radius: 0; /* Reseteo de home.css */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); 
+    border-radius: 0; 
   }
   
-  /* Quitamos la clase .info que no se usa aquí */
-
-  /* --- DISEÑO NOSOTROS MÓVIL (Estilos propios) --- */
   main section {
     padding: 15px 20px; 
     margin: 15px 0 0 0; 
     width: auto; 
   }
   
-  /* Título de sección en móvil */
+  /* --- CAMBIO 1: TÍTULOS A LA IZQUIERDA --- */
   main h5 {
     font-size: 18px; 
     margin-bottom: 15px;
-    /* Ajustes para móvil */
     width: 100%;
     padding: 8px 20px;
-    text-align: center;
+    text-align: left; /* <-- AQUÍ ESTÁ EL CAMBIO */
     box-sizing: border-box;
   }
   
-  /* Hacemos que la imagen se centre y ocupe un ancho limitado */
   .image-container {
       width: 90%; 
       max-width: 300px; 
@@ -418,26 +410,25 @@ div1:hover {
       display: block; 
   }
   
-  /* Eliminamos los márgenes de flotante en móvil */
   .left-align, .right-align {
       margin-left: auto;
       margin-right: auto;
   }
   
+  /* --- CAMBIO 2: TEXTO JUSTIFICADO --- */
   main p {
     font-size: 14px; 
-    text-align: left; 
+    text-align: justify; /* <-- AQUÍ ESTÁ EL CAMBIO */
     margin-top: 15px; 
   }
-  /* --- FIN DE DISEÑO NOSOTROS MÓVIL --- */
 
 
-  /* --- FOOTER MÓVIL (Idéntico a home.css) --- */
+  /* --- FOOTER MÓVIL (Sin cambios, como lo enviaste) --- */
   .mensaje-final { 
-    font-size: 8px; /* Reducido como en home.css */
+    font-size: 8px; 
     padding: 0 15px; 
     margin: 10px auto; 
-    background-color: transparent; /* Como en home.css */
+    background-color: transparent; 
   }
   .frase-final { 
     font-size: 18px; 
