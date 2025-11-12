@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AUTO EMPEÑO LUNA</title>
+  <link rel="stylesheet" href="preguntas.css">
+</head>
+<body>
+<header>
+  <div class="barra-superior">
+
+    <div class="header-title-group">
+      <div class="logo-mini">
+        <img src="/images/LOGOEMP.png" alt="Logo Auto Empeños Luna">
+      </div>
+      <h1>AUTO EMPEÑO <span>LUNA</span></h1>
+    </div>
+    <input type="checkbox" id="hamburger-toggle" class="hamburger-toggle">
+    
+    <label for="hamburger-toggle" class="hamburger-button">
+      &#9776; </label>
+
+  </div>
+
+  <nav class="menu">
+    <ul>
+       <li><a href="index.html">Inicio</a></li>
+      <li><a href="nosotros.html">Nosotros</a></li>
+      <li><a href="ventas.html" >Ventas</a></li>
+      <li><a href="preguntas.html"class="active">Preguntas frecuentes</a></li>
+      <li><a href="contacto.html">Contacto</a></li>
+    </ul>
+  </nav>
+</header>
+
+  <section class="frase-conocenos">
+    <h2>PREGUNTAS FRECUENTES</h2>
+  </section>
+
+<main class="faq-container">
+    
+    <div class="faq-item">
+        <button class="faq-question">
+            <span>¿Que artículos aceptan para empeñar?</span>
+            <span class="arrow-icon">&#9660;</span> </button>
+        <div class="faq-answer">
+            <p>Aceptamos una amplia variedad de artículos, incluyendo **automóviles, motocicletas, maquinaria pesada y joyas de oro**. La valuación se realiza de manera justa y transparente por personal experto.</p>
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <button class="faq-question">
+            <span>¿Que documentos se requieren para hacer un empeño?</span>
+            <span class="arrow-icon">&#9660;</span>
+        </button>
+        <div class="faq-answer">
+            <p>Generalmente, requerimos una **identificación oficial vigente** (INE o pasaporte) y la **factura original** del artículo a empeñar (en el caso de vehículos). En el caso de joyas, solo se requiere la identificación oficial.</p>
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <button class="faq-question">
+            <span>¿Cuál es el plazo para pagar mi empeño?</span>
+            <span class="arrow-icon">&#9660;</span>
+        </button>
+        <div class="faq-answer">
+            <p>El plazo estándar es de **30 días naturales**. No obstante, ofrecemos opciones de **renovación y refrendo** para extender este periodo si lo necesitas.</p>
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <button class="faq-question">
+            <span>¿Puedo renovar o refrendar mi empeño?</span>
+            <span class="arrow-icon">&#9660;</span>
+        </button>
+        <div class="faq-answer">
+            <p>¡Sí! Puedes renovar tu empeño cuantas veces lo necesites pagando los **intereses generados** hasta la fecha de vencimiento. Esto te permite extender el plazo sin perder tu prenda.</p>
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <button class="faq-question">
+            <span>¿Puedo recuperar mis cosas antes del plazo establecido?</span>
+            <span class="arrow-icon">&#9660;</span>
+        </button>
+        <div class="faq-answer">
+            <p>Claro que sí. Puedes liquidar tu préstamo y recuperar tu artículo en **cualquier momento** antes de la fecha de vencimiento. Solo pagarías los intereses generados hasta el día de la liquidación.</p>
+        </div>
+    </div>
+    
+    <div class="faq-item">
+        <button class="faq-question">
+            <span>¿Qué pasa si pierdo mi boleta de empeño?</span>
+            <span class="arrow-icon">&#9660;</span>
+        </button>
+        <div class="faq-answer">
+            <p>No te preocupes. Si pierdes tu boleta, solo necesitas presentarte con tu **identificación oficial** para verificar tu identidad. Se te proporcionará una nueva boleta o la información para realizar tu pago o refrendo.</p>
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <button class="faq-question">
+            <span>¿Puedo empeñar varias cosas al mismo tiempo?</span>
+            <span class="arrow-icon">&#9660;</span>
+        </button>
+        <div class="faq-answer">
+            <p>Sí, puedes empeñar tantos artículos como desees, siempre y cuando cumplas con los requisitos de documentación para cada uno.</p>
+        </div>
+    </div>
+
+</main>
+<p class="mensaje-final">
+    SOMOS UN NEGOCIO ESTABLECIDO CON MÁS DE 10 AÑOS DE EXPERIENCIA.
+    LA CONFIANZA DE NUESTROS CLIENTES NOS RESPALDA, NO TE DEJES ENGAÑAR
+  </p>
+<footer class="frase-final">
+  ¡NO SOMOS UNA OPCIÓN<br>
+  <div1>SOMOS TU SOLUCIÓN!</div1>
+</footer>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const questions = document.querySelectorAll('.faq-question');
+
+        questions.forEach(question => {
+            question.addEventListener('click', () => {
+                const item = question.closest('.faq-item');
+                const answer = item.querySelector('.faq-answer');
+                const arrow = question.querySelector('.arrow-icon');
+                
+                // Toggle la clase 'active' en el ítem completo
+                item.classList.toggle('active');
+
+                // Si tiene la clase 'active', muestra la respuesta y rota la flecha
+                if (item.classList.contains('active')) {
+                    // Muestra la respuesta con la altura real
+                    answer.style.maxHeight = answer.scrollHeight + "px";
+                    arrow.style.transform = 'rotate(180deg)'; // Rota la flecha
+                } else {
+                    // Oculta la respuesta
+                    answer.style.maxHeight = null;
+                    arrow.style.transform = 'rotate(0deg)'; // Regresa la flecha
+                }
+
+                // Opcional: Cierra otros ítems al abrir uno nuevo
+                questions.forEach(otherQuestion => {
+                    const otherItem = otherQuestion.closest('.faq-item');
+                    if (otherItem !== item && otherItem.classList.contains('active')) {
+                        const otherAnswer = otherItem.querySelector('.faq-answer');
+                        const otherArrow = otherQuestion.querySelector('.arrow-icon');
+
+                        otherItem.classList.remove('active');
+                        otherAnswer.style.maxHeight = null;
+                        otherArrow.style.transform = 'rotate(0deg)';
+                    }
+                });
+            });
+        });
+    });
+</script>
+
+</body>
+</html>

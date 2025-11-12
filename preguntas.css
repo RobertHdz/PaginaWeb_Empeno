@@ -1,0 +1,383 @@
+/* =======================================================
+   ESTRUCTURA PRINCIPAL Y FUENTES 
+========================================================== */
+
+html {
+  height: 100%;
+}
+
+body {
+  font-family: Georgia, 'Times New Roman', Times, serif; 
+  margin: 0;
+  background-color: #f2f2f2; /* Gris claro */
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* =======================================================
+   ESTILOS DE ENCABEZADO Y NAVEGACIÓN
+========================================================== */
+
+.barra-superior {
+  background-color: #113b64; 
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px;
+  position: relative; /* Para el botón de hamburguesa */
+  border-bottom: 4px solid #f5b301;
+
+}
+
+.logo-mini {
+  display: block; /* Visible en desktop */
+}
+
+.logo-mini img {
+  width: 50px; /* Tamaño de logo en header */
+  height: 50px;
+}
+
+.header-title-group {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.barra-superior h1 {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 28px;
+  margin: 0;
+  line-height: 1.1;
+  text-align: left; /* Alineado al logo */
+  font-weight: 900;
+}
+
+.barra-superior h1 span {
+  display: block;
+  font-size: 0.85em;
+  color: #f5b301;
+  font-weight: 700;
+}
+
+.menu {
+  display: block; /* Visible en desktop */
+  position: static;
+}
+.menu ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  background-color: #e8e8e8;
+  padding: 20px 0;
+  margin: 0;
+  flex-direction: row; /* Horizontal en desktop */
+  gap: 20px; /* Distancia uniforme */
+}
+
+.menu li {
+  margin: 0; /* Quitamos margin, usamos gap */
+  font-weight: 700;
+  border: none;
+}
+
+/* Estado normal de los botones */
+.menu a {
+  text-decoration: none;
+  color: white;
+  transition: all 0.3s ease;
+  border-radius: 5px;
+  background-color: #2a5a8a; /* Fondo de botón */
+  box-shadow: 0 1px 3px rgba(0,0,0,0.15); 
+  
+  /* Para "mismo tamaño" */
+  display: inline-block;  
+  width: 180px;           /* Ancho fijo */
+  text-align: center;     
+  padding: 8px 0;         
+  box-sizing: border-box; 
+}
+
+/* Botón al pasar el cursor (Hover) */
+.menu a:hover {
+  color: #113b64;
+  background-color: #f5b301;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2); 
+}
+
+/* Botón "activo" (en qué página estás) para Desktop */
+.menu a.active {
+  background-color: #c3c1bb; 
+  color: #113b64;
+  box-shadow: none; 
+}
+
+
+/* --- Botón Hamburguesa (Oculto en Desktop) --- */
+.hamburger-toggle { display: none; }
+.hamburger-button { display: none; }
+
+
+/* BARRA DE TÍTULO "PREGUNTAS FRECUENTES" */
+.frase-conocenos {
+  text-align: left;
+  background-color: #3D5F85;
+}
+
+.frase-conocenos h2 {
+  color: white;
+  /* Centrado y con padding como en desktop */
+  width: 90%;
+  max-width: 1200px; 
+  margin: 0 auto;
+  padding: 8px 20px;
+  box-sizing: border-box;
+  
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-weight: 800;
+  font-size: 26px;
+}
+
+main.faq-container {
+    flex-grow: 1; /* Empuja el footer hacia abajo */
+    width: 90%; 
+    max-width: 900px; /* Ancho máximo */
+    margin: 20px auto; 
+    padding: 0; 
+    background-color: transparent; 
+}
+
+.faq-item {
+    background-color: white;
+    margin-bottom: 15px; /* Espacio entre cada pregunta */
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    overflow: hidden; 
+    border: 1px solid #ddd; 
+    border-bottom: 5px solid #f5b301; 
+}
+
+.faq-item:last-child {
+    margin-bottom: 20px; 
+}
+
+
+.faq-question {
+    background-color: white;
+    color: #113b64; 
+    cursor: pointer;
+    padding: 18px 25px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 17px;
+    font-weight: 700;
+    transition: background-color 0.3s ease;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: Arial, Helvetica, sans-serif; 
+}
+
+.faq-question:hover {
+    background-color: #f0f0f0;
+}
+
+.faq-item.active .faq-question {
+    background-color: #e8e8e8;
+}
+
+.arrow-icon {
+    font-size: 20px;
+    color: #f5b301; 
+    margin-left: 10px;
+    transition: transform 0.4s ease; 
+}
+
+.faq-answer {
+    padding: 0 25px;
+    background-color: #f9f9f9;
+    max-height: 0; /* Oculta el contenido */
+    overflow: hidden; 
+    transition: max-height 0.4s ease-out; /* Animación de despliegue */
+}
+
+.faq-answer p {
+    color: #333;
+    font-size: 15px;
+    line-height: 1.6;
+    padding-top: 5px;
+    padding-bottom: 15px; 
+    margin: 0;
+    text-align: justify;
+    font-family: Arial, Helvetica, sans-serif; /* Fuente legible para respuestas */
+}
+
+.mensaje-final {
+  text-align: center;
+  color: #113b64;
+  font-weight: 800;
+  margin: 40px auto;
+  padding: 0 10%;
+  font-size: 18px;
+  background: none; /* Fondo de escritorio */
+}
+
+.frase-final {
+  text-align: center;
+  background-color: #113b64;
+  color: white;
+  font-weight: 800;
+  padding: 25px 0;
+  font-size: 22px;
+}
+div1{
+  background-color: #f5b301;
+  color: #113b64;
+  padding: 5px 40px; 
+  border-radius: 5px;
+  display: inline-block;
+}
+
+
+/* ============================================================
+   ESTILOS PARA MÓVIL (MEDIA QUERY)
+============================================================
+*/
+@media (max-width: 768px) {
+
+  /* --- HEADER Y MENÚ MÓVIL --- */
+  .barra-superior { padding: 15px 20px; }
+  
+  .logo-mini { display: block; } 
+  .logo-mini img {
+    height: 40px;
+    width: 40px;
+  }
+  .header-title-group { 
+    display: flex; 
+    align-items: center; 
+    position: static;
+    transform: none;
+  }
+  .barra-superior h1 { 
+    font-size: 20px; 
+    line-height: 1.1; 
+    text-align: left; 
+  }
+  .barra-superior h1 span { display: block; font-size: 0.85em; }
+  
+  /* Botón Hamburguesa */
+  .hamburger-button { 
+    display: block; 
+    background: none; 
+    border: none; 
+    color: white; 
+    font-size: 30px; 
+    cursor: pointer; 
+    z-index: 1001;
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  /* Menú desplegable */
+  .menu {
+    display: none; 
+    position: absolute;
+    top: 100%; 
+    left: 0;
+    width: 100%;
+    background-color: #113b64;
+    z-index: 999;
+    border-top: 1px solid #2a5a8a;
+  }
+  .menu ul {
+    flex-direction: column;
+    padding: 0;
+  }
+  .menu li {
+    margin: 0;
+    border-bottom: 1px solid #2a5a8a;
+  }
+  .menu a {
+    display: block;
+    padding: 20px;
+    text-align: center;
+    color: white;
+    /* Reseteamos los estilos de botón de desktop */
+    width: auto;
+    box-sizing: content-box;
+  }
+  .menu a:hover {
+    background-color: #f5b301;
+    color: #113b64;
+  }
+  
+  .menu a.active {
+    background-color: #e8e8e8; /* Fondo gris claro */
+    color: #113b64;          /* Texto azul */
+  }
+
+  .hamburger-toggle:checked ~ .menu {
+    display: block;
+  }
+  
+  /* Título "Conócenos" móvil */
+  .frase-conocenos h2 {
+    font-size: 20px;
+    padding: 15px 20px;
+    width: auto; 
+    max-width: none;
+    margin: 0;
+  }
+
+  /* --- CONTENIDO "FAQ" MÓVIL --- */
+  main.faq-container {
+        width: 100%;
+        margin-top: 0;
+        padding: 10px;
+        box-sizing: border-box;
+        display: block;
+    }
+    
+    .faq-item {
+        margin-bottom: 10px;
+        border-bottom: 5px solid #f5b301;
+    }
+    .faq-item:last-child {
+        margin-bottom: 15px; 
+    }
+    
+    .faq-question {
+        padding: 15px 15px;
+        font-size: 15px;
+    }
+    
+    .faq-answer {
+        padding: 0 15px;
+    }
+    
+    .faq-answer p {
+        font-size: 13px;
+        padding-bottom: 10px;
+        text-align: left;
+    }
+  /* --- FIN DE CONTENIDO "FAQ" MÓVIL --- */
+
+
+  /* --- FOOTER MÓVIL --- */
+  .mensaje-final { 
+    font-size: 14px; 
+    padding: 0 15px; 
+    margin: 20px auto; 
+    background-color: #f2f2f2; 
+  }
+  .frase-final { font-size: 18px; padding: 15px; }
+  div1{ padding: 3px 20px; }
+
+} /* --- FIN DEL @media query --- */
