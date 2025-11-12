@@ -17,7 +17,8 @@ body {
 }
 
 /* =======================================================
-   ESTILOS DE ENCABEZADO Y NAVEGACIÓN
+   ESTILOS DE ENCABEZADO Y NAVEGACIÓN (DESKTOP)
+   (Idénticos a home.css)
 ========================================================== */
 
 /* ENCABEZADO */
@@ -34,11 +35,11 @@ body {
 }
 
 .logo-mini {
-  display: block; /* Visible en desktop */
+  display: block;
 }
 
 .logo-mini img {
-  width: 50px; /* Tamaño de logo en header */
+  width: 50px; 
   height: 50px;
 }
 
@@ -53,7 +54,7 @@ body {
   font-size: 28px;
   margin: 0;
   line-height: 1.1;
-  text-align: left; /* Alineado al logo */
+  text-align: left;
   font-weight: 900;
 }
 
@@ -62,14 +63,15 @@ body {
   font-size: 0.85em;
   color: #f5b301;
   font-weight: 700;
+  text-align: center; /* Centrado */
 }
-
 
 /* MENÚ (DESKTOP) */
 .menu {
-  display: block; /* Visible en desktop */
+  display: block; 
   position: static;
 }
+
 .menu ul {
   list-style: none;
   display: flex;
@@ -77,12 +79,12 @@ body {
   background-color: #e8e8e8;
   padding: 20px 0;
   margin: 0;
-  flex-direction: row; /* Horizontal en desktop */
-  gap: 20px; /* Distancia uniforme */
+  flex-direction: row; /* Horizontalidad en desktop */
+  gap: 20px; 
 }
 
 .menu li {
-  margin: 0; /* Quitamos margin, usamos gap */
+  margin: 0;
   font-weight: 700;
   border: none;
 }
@@ -93,12 +95,10 @@ body {
   color: white;
   transition: all 0.3s ease;
   border-radius: 5px;
-  background-color: #2a5a8a; /* Fondo de botón */
+  background-color: #2a5a8a; 
   box-shadow: 0 1px 3px rgba(0,0,0,0.15); 
-  
-  /* Para "mismo tamaño" */
   display: inline-block;  
-  width: 180px;           /* Ancho fijo */
+  width: 180px;           
   text-align: center;     
   padding: 8px 0;         
   box-sizing: border-box; 
@@ -124,7 +124,7 @@ body {
 .hamburger-button { display: none; }
 
 
-/* BARRA DE TÍTULO "NOSOTROS" */
+/* BARRA DE TÍTULO "NOSOTROS" (CORREGIDO Y CENTRADO) */
 .frase-conocenos {
   text-align: left;
   background-color: #3D5F85;
@@ -132,10 +132,9 @@ body {
 
 .frase-conocenos h2 {
   color: white;
-  /* Centrado y con padding como en desktop */
   width: 90%;
-  max-width: 1200px;
-  margin: 0 auto;
+  max-width: 1200px; /* Ancho máximo (igual que el main de home) */
+  margin: 0 auto; /* <-- ESTA ES LA CORRECCIÓN PARA CENTRAR */
   padding: 8px 20px;
   box-sizing: border-box;
   
@@ -145,17 +144,21 @@ body {
 }
 
 /* =======================================================
-   CONTENIDO PRINCIPAL "NOSOTROS" 
+   CONTENIDO PRINCIPAL "NOSOTROS" (Estilos propios)
 ========================================================== */
 
 main {
   flex-grow: 1;
-  /* --- ESTILOS DESKTOP --- */
+  /* --- ESTILOS DESKTOP "NOSOTROS" --- */
   width: 80%; 
-  max-width: 900px;
-  margin: 0 auto;
+  max-width: 900px; /* Este ancho es más pequeño que el de home, pero respeta tu diseño */
+  margin: 20px auto; /* Añadido margen superior/inferior */
   background-color: #fafafa; 
   padding: 20px 0;
+  
+  /* Agregamos bordes y sombra como en home.css */
+  border-radius: 10px; 
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); 
 }
 
 /* --- ESTILOS DESKTOP "NOSOTROS" --- */
@@ -231,17 +234,17 @@ main .parrafo-inferior {
 
 
 /* =======================================================
-   FOOTER Y MENSAJE FINAL 
+   FOOTER Y MENSAJE FINAL (Idénticos a home.css)
 ========================================================== */
 
 .mensaje-final {
   text-align: center;
   color: #113b64;
-  font-weight: 800;
+  font-weight: 700;
   margin: 40px auto;
   padding: 0 10%;
   font-size: 18px;
-  background: none; /* Fondo de escritorio */
+  background: none; 
 }
 
 .frase-final {
@@ -249,15 +252,22 @@ main .parrafo-inferior {
   background-color: #113b64;
   color: white;
   font-weight: 800;
-  padding: 25px 0;
+  padding: 10px 0; /* Menos alto */
   font-size: 22px;
 }
 div1{
   background-color: #f5b301;
   color: #113b64;
-  padding: 5px 40px; 
-  border-radius: 5px;
+  padding: 5px 40px; /* Menos alto */
+  border-radius: 8px;
   display: inline-block;
+  font-size: 20px;
+  margin-top: 0px;
+  font-weight: 900;
+  transition: background-color 0.2s;
+}
+div1:hover {
+  background-color: #e8a800;
 }
 
 
@@ -267,88 +277,103 @@ div1{
 */
 @media (max-width: 768px) {
 
-  /* --- HEADER Y MENÚ MÓVIL --- */
-  .barra-superior { padding: 15px 20px; }
+  /* --- ENCABEZADO Y MENÚ (Idéntico a home.css) --- */
   
-  .logo-mini { display: block; } 
-  .logo-mini img {
-    height: 40px;
-    width: 40px;
-  }
-  .header-title-group { 
-    display: flex; 
-    align-items: center; 
-    position: static;
-    transform: none;
-  }
-  .barra-superior h1 { 
-    font-size: 20px; 
-    line-height: 1.1; 
-    text-align: left; 
-  }
-  .barra-superior h1 span { display: block; font-size: 0.85em; }
+  .barra-superior { padding: 20px; justify-content: space-between; }
   
   /* Botón Hamburguesa */
   .hamburger-button { 
     display: block; 
-    background: none; 
-    border: none; 
-    color: white; 
-    font-size: 30px; 
-    cursor: pointer; 
-    z-index: 1001;
     position: absolute;
     right: 20px;
     top: 50%;
     transform: translateY(-50%);
+    z-index: 1001;
+    background: none; 
+    border: none; 
+    color: #f5b301; 
+    font-size: 32px; 
+    cursor: pointer; 
+    text-shadow: 0 0 5px rgba(245, 179, 1, 0.5); 
   }
-  /* Menú desplegable */
+  
+/* --- MENÚ: Despliegue Suave (ALTURA AUTOMÁTICA CORREGIDA) --- */
   .menu {
-    display: none; 
+    display: block; 
     position: absolute;
-    top: 100%; 
-    left: 0;
-    width: 100%;
-    background-color: #113b64;
-    z-index: 999;
-    border-top: 1px solid #2a5a8a;
+    top: 100px; 
+    left: auto;
+    right: 0; 
+    width: 60%; 
+    
+    /* --- LA CORRECCIÓN DEFINITIVA --- */
+    height: auto; /* 1. Altura automática */
+    max-height: none; /* 2. Sin altura máxima */
+    /* (Asegúrate de que no haya NINGUNA otra línea 'height' o 'max-height' para este selector) */
+    
+    background-color: #113b64; 
+    z-index: 1000; 
+    border-radius:12px; 
+    border-left: 2px solid #f5b301; 
+    box-shadow: -8px 8px 25px rgba(0, 0, 0, 0.8); 
+    
+    transform: translateX(100%); 
+    transition: transform 0.3s ease-in-out; 
+    
+    overflow-y: auto; /* Permitir scroll (buena práctica) */
+    overflow-x: hidden;
   }
+  .hamburger-toggle:checked ~ .menu {
+    display: block !important; 
+    transform: translateX(0); 
+  }
+
   .menu ul {
     flex-direction: column;
     padding: 0;
-  }
-  .menu li {
-    margin: 0;
-    border-bottom: 1px solid #2a5a8a;
-  }
-  .menu a {
-    display: block;
-    padding: 20px;
-    text-align: center;
-    color: white;
-    /* Reseteamos los estilos de botón de desktop */
-    width: auto;
-    box-sizing: content-box;
-  }
-  .menu a:hover {
-    background-color: #f5b301;
-    color: #113b64;
-  }
-  
-  /* Botón "activo" (en qué página estás) para Móvil */
-  .menu a.active {
-    background-color: #e8e8e8; /* Fondo gris claro */
-    color: #113b64;          /* Texto azul */
+    gap: 0;
+    background-color: transparent;
   }
 
-  .hamburger-toggle:checked ~ .menu {
+  .menu li {
+    width: 100%;
+    margin-bottom: 0;
+    border-bottom: 1px solid rgba(245, 179, 1, 0.3); 
+  }
+
+  .menu li:last-child {
+      border-bottom: none;
+  }
+
+  .menu a {
+    background-color: transparent; 
+    color: white; 
+    text-align: left; 
     display: block;
+    width: 100%;
+    padding: 25px 15px; 
+    border-radius: 0;
+    box-shadow: none;
+    box-sizing: border-box; 
+    transition: background-color 0.15s ease, color 0.15s ease; 
+  }
+
+  .menu a:hover {
+    background-color: #f5b301; 
+    color: #113b64;
+    box-shadow: none;
+  }
+
+  .menu a.active {
+    background-color: #f5b301; 
+    color: #113b64;
+    font-weight: 900;
   }
   
-  /* Título "Conócenos" móvil */
+  /* Título "Conócenos" móvil (Idéntico a home.css) */
   .frase-conocenos h2 {
-    font-size: 20px;
-    padding: 15px 20px;
+    font-size: 18px; 
+    padding: 10px 20px; 
     width: auto; 
     max-width: none;
     margin: 0;
@@ -360,13 +385,13 @@ div1{
     padding: 0;
     margin: 0;
     display: block; 
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra de home.css */
+    border-radius: 0; /* Reseteo de home.css */
   }
   
-  section.info {
-    display: block; 
-  }
+  /* Quitamos la clase .info que no se usa aquí */
 
-  /* --- DISEÑO NOSOTROS MÓVIL --- */
+  /* --- DISEÑO NOSOTROS MÓVIL (Estilos propios) --- */
   main section {
     padding: 15px 20px; 
     margin: 15px 0 0 0; 
@@ -377,6 +402,11 @@ div1{
   main h5 {
     font-size: 18px; 
     margin-bottom: 15px;
+    /* Ajustes para móvil */
+    width: 100%;
+    padding: 8px 20px;
+    text-align: center;
+    box-sizing: border-box;
   }
   
   /* Hacemos que la imagen se centre y ocupe un ancho limitado */
@@ -402,14 +432,23 @@ div1{
   /* --- FIN DE DISEÑO NOSOTROS MÓVIL --- */
 
 
-  /* --- FOOTER MÓVIL --- */
+  /* --- FOOTER MÓVIL (Idéntico a home.css) --- */
   .mensaje-final { 
-    font-size: 14px; 
+    font-size: 8px; /* Reducido como en home.css */
     padding: 0 15px; 
-    margin: 20px auto; 
-    background-color: #f2f2f2; 
+    margin: 10px auto; 
+    background-color: transparent; /* Como en home.css */
   }
-  .frase-final { font-size: 18px; padding: 15px; }
-  div1{ padding: 3px 20px; }
+  .frase-final { 
+    font-size: 18px; 
+    padding: 15px; 
+    line-height: 1.4;
+  }
+  div1{ 
+    padding: 6px 25px; 
+    font-size: 18px;
+    margin-top: 0px;
+    font-weight: 900;
+  }
 
 } /* --- FIN DEL @media query --- */

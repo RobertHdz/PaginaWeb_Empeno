@@ -7,34 +7,34 @@
   <link rel="stylesheet" href="preguntas.css">
 </head>
 <body>
+
 <header>
   <div class="barra-superior">
-
     <div class="header-title-group">
       <div class="logo-mini">
         <img src="images/LOGOEMP.png" alt="Logo Auto Empeños Luna">
       </div>
       <h1>AUTO EMPEÑO <span>LUNA</span></h1>
     </div>
-    <input type="checkbox" id="hamburger-toggle" class="hamburger-toggle">
     
     <label for="hamburger-toggle" class="hamburger-button">
-      &#9776; </label>
-
+      &#9776; 
+    </label>
   </div>
+
+  <input type="checkbox" id="hamburger-toggle" class="hamburger-toggle">
 
   <nav class="menu">
     <ul>
        <li><a href="index.html">Inicio</a></li>
-      <li><a href="nosotros.html">Nosotros</a></li>
-      <li><a href="ventas.html" >Ventas</a></li>
-      <li><a href="preguntas.html"class="active">Preguntas frecuentes</a></li>
-      <li><a href="contacto.html">Contacto</a></li>
+       <li><a href="nosotros.html">Nosotros</a></li>
+       <li><a href="ventas.html">Ventas</a></li>
+       <li><a href="preguntas.html" class="active">Preguntas frecuentes</a></li>
+       <li><a href="contacto.html">Contacto</a></li>
     </ul>
   </nav>
 </header>
-
-  <section class="frase-conocenos">
+<section class="frase-conocenos">
     <h2>PREGUNTAS FRECUENTES</h2>
   </section>
 
@@ -129,21 +129,7 @@
                 const answer = item.querySelector('.faq-answer');
                 const arrow = question.querySelector('.arrow-icon');
                 
-                // Toggle la clase 'active' en el ítem completo
-                item.classList.toggle('active');
-
-                // Si tiene la clase 'active', muestra la respuesta y rota la flecha
-                if (item.classList.contains('active')) {
-                    // Muestra la respuesta con la altura real
-                    answer.style.maxHeight = answer.scrollHeight + "px";
-                    arrow.style.transform = 'rotate(180deg)'; // Rota la flecha
-                } else {
-                    // Oculta la respuesta
-                    answer.style.maxHeight = null;
-                    arrow.style.transform = 'rotate(0deg)'; // Regresa la flecha
-                }
-
-                // Opcional: Cierra otros ítems al abrir uno nuevo
+                // Cierra otros ítems ANTES de abrir el nuevo
                 questions.forEach(otherQuestion => {
                     const otherItem = otherQuestion.closest('.faq-item');
                     if (otherItem !== item && otherItem.classList.contains('active')) {
@@ -155,6 +141,19 @@
                         otherArrow.style.transform = 'rotate(0deg)';
                     }
                 });
+
+                // Toggle la clase 'active' en el ítem actual
+                item.classList.toggle('active');
+
+                // Si tiene la clase 'active', muestra la respuesta y rota la flecha
+                if (item.classList.contains('active')) {
+                    answer.style.maxHeight = answer.scrollHeight + "px";
+                    arrow.style.transform = 'rotate(180deg)'; // Rota la flecha
+                } else {
+                    // Oculta la respuesta
+                    answer.style.maxHeight = null;
+                    arrow.style.transform = 'rotate(0deg)'; // Regresa la flecha
+                }
             });
         });
     });

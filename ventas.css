@@ -17,7 +17,8 @@ body {
 }
 
 /* =======================================================
-   ESTILOS DE ENCABEZADO Y NAVEGACIÓN
+   ESTILOS DE ENCABEZADO Y NAVEGACIÓN (DESKTOP)
+   (Idénticos a home.css)
 ========================================================== */
 
 /* ENCABEZADO */
@@ -31,16 +32,15 @@ body {
   padding: 10px;
   position: relative; /* Para el botón de hamburguesa */
   border-bottom: 4px solid #f5b301;
-
 }
 
 .logo-mini {
-  display: block; /* Visible en desktop */
+  display: block;
 }
 
 .logo-mini img {
-  width: 45px; /* Tamaño del logo en el header, ligeramente más pequeño */
-  height: 45px;
+  width: 50px; 
+  height: 50px;
 }
 
 .header-title-group {
@@ -54,7 +54,7 @@ body {
   font-size: 28px;
   margin: 0;
   line-height: 1.1;
-  text-align: left; /* Alineado al logo */
+  text-align: left;
   font-weight: 900;
 }
 
@@ -63,14 +63,15 @@ body {
   font-size: 0.85em;
   color: #f5b301;
   font-weight: 700;
+  text-align: center; /* Centrado */
 }
-
 
 /* MENÚ (DESKTOP) */
 .menu {
-  display: block; /* Visible en desktop */
+  display: block; 
   position: static;
 }
+
 .menu ul {
   list-style: none;
   display: flex;
@@ -78,12 +79,12 @@ body {
   background-color: #e8e8e8;
   padding: 20px 0;
   margin: 0;
-  flex-direction: row; /* Horizontal en desktop */
-  gap: 20px; /* Distancia uniforme */
+  flex-direction: row; /* Horizontalidad en desktop */
+  gap: 20px; 
 }
 
 .menu li {
-  margin: 0; /* Quitamos margin, usamos gap */
+  margin: 0;
   font-weight: 700;
   border: none;
 }
@@ -94,12 +95,10 @@ body {
   color: white;
   transition: all 0.3s ease;
   border-radius: 5px;
-  background-color: #2a5a8a; /* Fondo de botón */
+  background-color: #2a5a8a; 
   box-shadow: 0 1px 3px rgba(0,0,0,0.15); 
-  
-  /* Para "mismo tamaño" */
   display: inline-block;  
-  width: 180px;           /* Ancho fijo */
+  width: 180px;           
   text-align: center;     
   padding: 8px 0;         
   box-sizing: border-box; 
@@ -125,7 +124,7 @@ body {
 .hamburger-button { display: none; }
 
 
-/* BARRA DE TÍTULO "VENTAS" */
+/* BARRA DE TÍTULO "VENTAS" (Idéntica a home.css) */
 .frase-conocenos {
   text-align: left;
   background-color: #3D5F85;
@@ -133,20 +132,20 @@ body {
 
 .frase-conocenos h2 {
   color: white;
-  /* Centrado y con padding como en desktop */
   width: 90%;
-  max-width: 1200px; 
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 8px 20px;
+  padding: 8px 0px;
   box-sizing: border-box;
   
   font-family: Georgia, 'Times New Roman', Times, serif;
   font-weight: 800;
   font-size: 26px;
+
 }
 
 /* =======================================================
-   CONTENIDO PRINCIPAL "VENTAS" 
+   CONTENIDO PRINCIPAL "VENTAS" (Estilos propios)
 ========================================================== */
 
 main.sales-container {
@@ -156,6 +155,10 @@ main.sales-container {
   margin: 20px auto;
   padding: 20px 0;
   background-color: transparent;
+  
+  /* Agregamos bordes y sombra como en home.css */
+  border-radius: 10px; 
+  /* La sombra no se aplica aquí, se aplica a las tarjetas */
 }
 
 .category-section {
@@ -227,7 +230,6 @@ main.sales-container {
 }
 
 /* AJUSTE PARA EL ESPACIO: Reducimos el margen de la última sección de categorías */
-/* La última .category-section antes del banner solo tiene el h3, y reduciremos el margin-bottom */
 .category-facebook-link {
     margin-bottom: 20px; /* Reducido de 40px a 20px */
 }
@@ -236,7 +238,7 @@ main.sales-container {
    ESTILOS DEL BANNER DE FACEBOOK (ACTUALIZADO)
 ========================================================== */
 .facebook-banner {
-  margin-top: 0px; /* CLAVE: Eliminado el margen superior del banner */
+  margin-top: 0px; 
   padding: 30px;
   background-color: #f8f8f8; 
   border: 1px solid #ddd; 
@@ -247,7 +249,6 @@ main.sales-container {
   overflow: hidden; 
 }
 
-/* Pseudo-elemento para el logo de fondo */
 .facebook-banner::before {
   content: "";
   position: absolute;
@@ -255,20 +256,14 @@ main.sales-container {
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url('LOGOEMP.png');
+  background-image: url('images/LOGOEMP.png'); /* Ruta corregida */
   background-repeat: no-repeat;
   background-position: center center;
   background-size: 180px; 
-  opacity: 0.15; /* Se mantiene en 0.05 para máxima transparencia y legibilidad */
+  opacity: 0.15; 
   z-index: 0; 
   pointer-events: none; 
 }
-
-/* Ocultamos el "f" de Facebook de fondo */
-.facebook-banner .icon-facebook {
-  display: none; 
-}
-
 
 .banner-text {
   font-size: 20px;
@@ -277,13 +272,7 @@ main.sales-container {
   margin-bottom: 20px;
   line-height: 1.4;
   position: relative; 
-  z-index: 1; /* Asegura que el texto esté sobre el logo de fondo */
-}
-
-.banner-text strong {
-  /* Se elimina el negritas manual en HTML para que el color azul sea uniforme */
-  color: #113b64; 
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.05); 
+  z-index: 1; 
 }
 
 .facebook-button {
@@ -301,7 +290,7 @@ main.sales-container {
   border: 2px solid #f5b301; 
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   position: relative;
-  z-index: 1; /* Asegura que el botón esté sobre el logo de fondo */
+  z-index: 1; 
 }
 
 .facebook-button:hover {
@@ -310,7 +299,6 @@ main.sales-container {
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
 }
 
-/* Estilos para la imagen del logo de Facebook dentro del botón */
 .fb-logo {
   width: 24px; 
   height: 24px;
@@ -322,13 +310,13 @@ main.sales-container {
 
 
 /* =======================================================
-   FOOTER Y MENSAJE FINAL 
+   FOOTER Y MENSAJE FINAL (Idénticos a home.css)
 ========================================================== */
 
 .mensaje-final {
   text-align: center;
   color: #113b64;
-  font-weight: 800;
+  font-weight: 700;
   margin: 40px auto;
   padding: 0 10%;
   font-size: 18px;
@@ -340,15 +328,22 @@ main.sales-container {
   background-color: #113b64;
   color: white;
   font-weight: 800;
-  padding: 25px 0;
+  padding: 10px 0; /* Menos alto */
   font-size: 22px;
 }
 div1{
   background-color: #f5b301;
   color: #113b64;
-  padding: 5px 40px; 
-  border-radius: 5px;
+  padding: 5px 40px; /* Menos alto */
+  border-radius: 8px;
   display: inline-block;
+  font-size: 20px;
+  margin-top: 0px;
+  font-weight: 900;
+  transition: background-color 0.2s;
+}
+div1:hover {
+  background-color: #e8a800;
 }
 
 
@@ -358,99 +353,118 @@ div1{
 */
 @media (max-width: 768px) {
 
-  /* --- HEADER Y MENÚ MÓVIL (SIN CAMBIOS) --- */
-  .barra-superior { padding: 15px 20px; }
+  /* --- ENCABEZADO Y MENÚ (Idéntico a home.css) --- */
   
-  .logo-mini { display: block; } 
-  .logo-mini img {
-    height: 35px; 
-    width: 35px;
-  }
-  .header-title-group { 
-    display: flex; 
-    align-items: center; 
-    position: static;
-    transform: none;
-  }
-  .barra-superior h1 { 
-    font-size: 20px; 
-    line-height: 1.1; 
-    text-align: left; 
-  }
-  .barra-superior h1 span { display: block; font-size: 0.85em; }
+  .barra-superior { padding: 20px; justify-content: space-between; }
   
   /* Botón Hamburguesa */
   .hamburger-button { 
     display: block; 
-    background: none; 
-    border: none; 
-    color: white; 
-    font-size: 30px; 
-    cursor: pointer; 
-    z-index: 1001;
     position: absolute;
     right: 20px;
     top: 50%;
     transform: translateY(-50%);
+    z-index: 1001;
+    background: none; 
+    border: none; 
+    color: #f5b301; 
+    font-size: 32px; 
+    cursor: pointer; 
+    text-shadow: 0 0 5px rgba(245, 179, 1, 0.5); 
   }
-  /* Menú desplegable */
+  
+/* --- MENÚ: Despliegue Suave (ALTURA AUTOMÁTICA CORREGIDA) --- */
   .menu {
-    display: none; 
+    display: block; 
     position: absolute;
-    top: 100%; 
-    left: 0;
-    width: 100%;
-    background-color: #113b64;
-    z-index: 999;
-    border-top: 1px solid #2a5a8a;
+    top: 100px; 
+    left: auto;
+    right: 0; 
+    width: 60%; 
+    
+    /* --- LA CORRECCIÓN DEFINITIVA --- */
+    height: auto; /* 1. Altura automática */
+    max-height: none; /* 2. Sin altura máxima */
+    /* (Asegúrate de que no haya NINGUNA otra línea 'height' o 'max-height' para este selector) */
+    
+    background-color: #113b64; 
+    z-index: 1000; 
+    border-radius:12px; 
+    border-left: 2px solid #f5b301; 
+    box-shadow: -8px 8px 25px rgba(0, 0, 0, 0.8); 
+    
+    transform: translateX(100%); 
+    transition: transform 0.3s ease-in-out; 
+    
+    overflow-y: auto; /* Permitir scroll (buena práctica) */
+    overflow-x: hidden;
   }
+  
+  .hamburger-toggle:checked ~ .menu {
+    display: block !important; 
+    transform: translateX(0); 
+  }
+
   .menu ul {
     flex-direction: column;
     padding: 0;
-  }
-  .menu li {
-    margin: 0;
-    border-bottom: 1px solid #2a5a8a;
-  }
-  .menu a {
-    display: block;
-    padding: 20px;
-    text-align: center;
-    color: white;
-    width: auto;
-    box-sizing: content-box;
-  }
-  .menu a:hover {
-    background-color: #f5b301;
-    color: #113b64;
-  }
-  
-  /* Botón "activo" (en qué página estás) para Móvil */
-  .menu a.active {
-    background-color: #e8e8e8; 
-    color: #113b64;          
+    gap: 0;
+    background-color: transparent;
   }
 
-  .hamburger-toggle:checked ~ .menu {
+  .menu li {
+    width: 100%;
+    margin-bottom: 0;
+    border-bottom: 1px solid rgba(245, 179, 1, 0.3); 
+  }
+
+  .menu li:last-child {
+      border-bottom: none;
+  }
+
+  .menu a {
+    background-color: transparent; 
+    color: white; 
+    text-align: left; 
     display: block;
+    width: 100%;
+    padding: 25px 15px; 
+    border-radius: 0;
+    box-shadow: none;
+    box-sizing: border-box; 
+    transition: background-color 0.15s ease, color 0.15s ease; 
+  }
+
+  .menu a:hover {
+    background-color: #f5b301; 
+    color: #113b64;
+    box-shadow: none;
+  }
+
+  .menu a.active {
+    background-color: #f5b301; 
+    color: #113b64;
+    font-weight: 900;
   }
   
-  /* Título "Conócenos" móvil */
+  /* Título "Conócenos" móvil (Idéntico a home.css) */
   .frase-conocenos h2 {
-    font-size: 20px;
-    padding: 15px 20px;
+    font-size: 18px; 
+    padding: 10px 20px; 
     width: auto; 
     max-width: none;
     margin: 0;
   }
 
-  /* --- CONTENIDO "VENTAS" MÓVIL --- */
+  /* --- CONTENIDO "VENTAS" MÓVIL (Estilos propios) --- */
   main.sales-container {
     width: 100%; 
     padding: 20px 15px;
     margin: 0;
     box-sizing: border-box;
     display: block;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra de home.css */
+    border-radius: 0; /* Reseteo de home.css */
   }
 
   .category-title {
@@ -481,7 +495,7 @@ div1{
   /* BANNER FACEBOOK MÓVIL */
   .facebook-banner {
     padding: 20px 15px;
-    margin-top: 0px; /* CLAVE: Eliminado el margen superior del banner en móvil */
+    margin-top: 0px; 
   }
   .facebook-banner::before {
       background-size: 120px; 
@@ -507,14 +521,23 @@ div1{
     margin-bottom: 10px; /* Reducido para móvil */
   }
 
-  /* --- FOOTER MÓVIL (SIN CAMBIOS) --- */
+  /* --- FOOTER MÓVIL (Idéntico a home.css) --- */
   .mensaje-final { 
-    font-size: 14px; 
+    font-size: 8px; /* Reducido como en home.css */
     padding: 0 15px; 
-    margin: 20px auto; 
-    background-color: #f2f2f2; 
+    margin: 10px auto; 
+    background-color: transparent; /* Como en home.css */
   }
-  .frase-final { font-size: 18px; padding: 15px; }
-  div1{ padding: 3px 20px; }
+  .frase-final { 
+    font-size: 18px; 
+    padding: 15px; 
+    line-height: 1.4;
+  }
+  div1{ 
+    padding: 6px 25px; 
+    font-size: 18px;
+    margin-top: 0px;
+    font-weight: 900;
+  }
 
 } /* --- FIN DEL @media query --- */
