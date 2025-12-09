@@ -1,6 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // ⚠️ INSERTA TU CLAVE API REAL AQUÍ.
-    const GEMINI_API_KEY = "AIzaSyC97VMVUBhYvz6Bgbb4mExMOGU_9vMfIS4"; 
     
     // --- Referencias a elementos del DOM ---
     const questions = document.querySelectorAll('.faq-question');
@@ -9,13 +7,25 @@ document.addEventListener('DOMContentLoaded', () => {
     const responseBox = document.getElementById('ia-response-box');
     const responseText = document.getElementById('ia-response-text');
 
-    //  Lógica para el Acordeón (no relacionada con la API)
+    // ⚠️ CRÍTICO: Define la URL del Backend (Python/Flask)
+    // 
+    // Si estás probando localmente, usa: 'http://127.0.0.1:5000/api/chatbot'
+    // Cuando lo subas a un hosting (Render, Railway), usa la URL pública: 
+    // const API_URL = 'https://nombredetuservidor.com/api/chatbot'; 
+    const API_URL = 'http://127.0.0.1:5000/api/chatbot'; 
+    
+
+    // =====================================================
+    // LÓGICA DEL ACORDEÓN DE FAQs
+    // =====================================================
+
     questions.forEach(question => {
         question.addEventListener('click', () => {
             const item = question.closest('.faq-item');
             const answer = item.querySelector('.faq-answer');
             const arrow = question.querySelector('.arrow-icon');
             
+            // Cierra otros ítems ANTES de abrir el nuevo
             questions.forEach(otherQuestion => {
                 const otherItem = otherQuestion.closest('.faq-item');
                 if (otherItem !== item && otherItem.classList.contains('active')) {
@@ -27,6 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             });
 
+            // Toggle la clase 'active' en el ítem actual
             item.classList.toggle('active');
             if (item.classList.contains('active')) {
                 answer.style.maxHeight = answer.scrollHeight + "px";
@@ -38,8 +49,9 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Instrucción del sistema
-    const systemContext = "Eres el asistente virtual para la sección de Preguntas Frecuentes de 'AUTO EMPEÑO LUNA', un negocio de empeño. Responde las preguntas de los usuarios de manera concisa, amable y profesional, basándote en que el negocio acepta joyas, electrónicos, herramientas, electrodomésticos y ofrece empeño automotriz. No tienes información sobre ventas de artículos. Mantente dentro del rol del negocio de empeño.";
+    // =====================================================
+    // LÓGICA DEL BUSCADOR DE IA (Conexión al Backend Seguro)
+    // =====================================================
 
     async function handleIaSearch() {
         const rawQuestion = input.value.trim(); 
@@ -50,56 +62,44 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        if (GEMINI_API_KEY.includes("AIzaSyC97VMVUBhYvz6Bgbb4mExMOGU_9vMfIS4") || GEMINI_API_KEY === "") {
-            responseText.textContent = "🚨 ERROR: ¡Falta configurar tu clave API de Gemini! Por favor, pégala en el archivo preguntas.js.";
-            responseBox.style.display = 'block';
-            return;
-        }
-        
-        // MÉTODO MÁS COMPATIBLE: Inyectar contexto en la pregunta del usuario.
-        const fullQuestionWithContext = `${systemContext}\n\nPregunta del usuario: ${rawQuestion}`;
-
         responseBox.style.display = 'block';
-        responseText.innerHTML = "🤖 Buscando la respuesta...";
+        responseText.innerHTML = "🤖 Contactando al asistente seguro...";
         button.disabled = true;
 
         try {
-            const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${GEMINI_API_KEY}`, {
+            // Envío de la pregunta al servidor Python/Flask
+            const response = await fetch(API_URL, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({
-                    "contents": [
-                        // Único mensaje con rol 'user'
-                        {
-                            "role": "user",
-                            "parts": [{"text": fullQuestionWithContext}]
-                        }
-                    ],
+                body: JSON.stringify({ 
+                    pregunta_cliente: rawQuestion 
                 })
             });
 
             const data = await response.json();
-            let answer = "Lo siento, no pude obtener una respuesta clara. Inténtalo de nuevo.";
+            let answer;
 
-            if (data.candidates && data.candidates.length > 0) {
-                answer = data.candidates[0].content.parts[0].text;
-            } else if (data.error) {
-                answer = `Error de la API: ${data.error.message}.`;
-                console.error("API Error:", data.error.message);
+            if (!response.ok) {
+                // El servidor devolvió un error (400, 500)
+                answer = `Error del servidor: ${data.error || 'Algo salió mal en el backend.'}. Verifica que el servidor esté activo.`;
+            } else {
+                // Respuesta exitosa del backend con la respuesta de Gemini
+                answer = data.respuesta_ia || "La IA no pudo generar una respuesta clara.";
             }
             
             responseText.textContent = answer;
 
         } catch (error) {
-            console.error('Error de red o conexión:', error);
-            responseText.textContent = "Hubo un error de conexión. Verifica tu clave API y conexión.";
+            console.error('Error de red o CORS:', error);
+            responseText.textContent = "❌ Error de conexión. Asegúrate de que tu servidor Python esté corriendo y la API_URL sea correcta.";
         } finally {
             button.disabled = false;
         }
     }
 
+    // Eventos para el botón y la tecla Enter
     button.addEventListener('click', handleIaSearch);
     input.addEventListener('keypress', function (e) {
         if (e.key === 'Enter') {
