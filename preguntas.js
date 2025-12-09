@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const responseBox = document.getElementById('ia-response-box');
     const responseText = document.getElementById('ia-response-text');
 
-    // Lógica para el Acordeón (no relacionada con la API)
+    //  Lógica para el Acordeón (no relacionada con la API)
     questions.forEach(question => {
         question.addEventListener('click', () => {
             const item = question.closest('.faq-item');
