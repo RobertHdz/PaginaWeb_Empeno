@@ -4,8 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AUTO EMPEÑO LUNA</title>
-  <link rel="stylesheet" href="preguntas.css">
-</head>
+  <link rel="stylesheet" href="preguntas.css"> 
+  
+  </head>
 <body>
 
 <header>
@@ -127,8 +128,17 @@
             para ofrecerte el mejor préstamo posible.</p>
         </div>
     </div>
-
-</main>
+    <div class="ia-search-container">
+        <h3>💬 ¿Tienes otra pregunta? Pregúntale a nuestro Asistente Virtual</h3>
+        <div class="search-input-group">
+            <input type="text" id="ia-question-input" placeholder="Escribe tu pregunta sobre auto empeño o artículos aquí...">
+            <button id="ia-submit-button">Buscar</button>
+        </div>
+        <div id="ia-response-box" class="ia-response-box" style="display: none;">
+            <p id="ia-response-text"></p>
+        </div>
+    </div>
+    </main>
 <p class="mensaje-final">
     SOMOS UN NEGOCIO ESTABLECIDO CON MÁS DE 10 AÑOS DE EXPERIENCIA.
     LA CONFIANZA DE NUESTROS CLIENTES NOS RESPALDA, NO TE DEJES ENGAÑAR
@@ -138,45 +148,7 @@
   <div1>SOMOS TU SOLUCIÓN!</div1>
 </footer>
 
-<script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const questions = document.querySelectorAll('.faq-question');
-
-        questions.forEach(question => {
-            question.addEventListener('click', () => {
-                const item = question.closest('.faq-item');
-                const answer = item.querySelector('.faq-answer');
-                const arrow = question.querySelector('.arrow-icon');
-                
-                // Cierra otros ítems ANTES de abrir el nuevo
-                questions.forEach(otherQuestion => {
-                    const otherItem = otherQuestion.closest('.faq-item');
-                    if (otherItem !== item && otherItem.classList.contains('active')) {
-                        const otherAnswer = otherItem.querySelector('.faq-answer');
-                        const otherArrow = otherQuestion.querySelector('.arrow-icon');
-
-                        otherItem.classList.remove('active');
-                        otherAnswer.style.maxHeight = null;
-                        otherArrow.style.transform = 'rotate(0deg)';
-                    }
-                });
-
-                // Toggle la clase 'active' en el ítem actual
-                item.classList.toggle('active');
-
-                // Si tiene la clase 'active', muestra la respuesta y rota la flecha
-                if (item.classList.contains('active')) {
-                    answer.style.maxHeight = answer.scrollHeight + "px";
-                    arrow.style.transform = 'rotate(180deg)'; // Rota la flecha
-                } else {
-                    // Oculta la respuesta
-                    answer.style.maxHeight = null;
-                    arrow.style.transform = 'rotate(0deg)'; // Regresa la flecha
-                }
-            });
-        });
-    });
-</script>
+<script src="preguntas.js"></script>
 
 </body>
 </html>
