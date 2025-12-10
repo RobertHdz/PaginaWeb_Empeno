@@ -4,16 +4,20 @@
 
 html {
   height: 100%;
+  box-sizing: border-box; /* Asegura que padding y border no aumenten el ancho total */
+}
+
+*, *::before, *::after {
+  box-sizing: inherit; /* Hereda box-sizing para todos los elementos */
 }
 
 body {
-  font-family: Georgia, 'Times New Roman', Times, serif; 
+  font-family: Arial, Helvetica, sans-serif; /* Cambiado a una fuente más web-safe para el cuerpo */
   margin: 0;
   background-color: #f2f2f2; /* Gris claro */
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-
   overflow-x: hidden;
 }
 
@@ -23,24 +27,21 @@ body {
 
 /* ENCABEZADO */
 .barra-superior {
-  background-color: #113b64; 
+  background-color: #113b64; /* Azul Oscuro */
   color: white;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: center; /* Centrado en desktop */
   gap: 10px;
   padding: 10px;
   position: relative; 
-  border-bottom: 4px solid #f5b301;
-}
-
-.logo-mini {
-  display: block;
+  border-bottom: 4px solid #f5b301; /* Amarillo */
 }
 
 .logo-mini img {
   width: 50px; 
   height: 50px;
+  display: block; /* Evita espacio inferior */
 }
 
 .header-title-group {
@@ -83,24 +84,18 @@ body {
   gap: 20px; 
 }
 
-.menu li {
-  margin: 0;
-  font-weight: 700;
-  border: none;
-}
-
 .menu a {
   text-decoration: none;
   color: white;
   transition: all 0.3s ease;
   border-radius: 5px;
-  background-color: #2a5a8a; 
+  background-color: #2a5a8a; /* Azul intermedio */
   box-shadow: 0 1px 3px rgba(0,0,0,0.15); 
   display: inline-block;  
   width: 180px;           
   text-align: center;     
   padding: 8px 0;         
-  box-sizing: border-box; 
+  font-weight: 700;
 }
 
 .menu a:hover {
@@ -110,7 +105,7 @@ body {
 }
 
 .menu a.active {
-  background-color: #c3c1bb; 
+  background-color: #c3c1bb; /* Gris claro */
   color: #113b64;
   box-shadow: none; 
 }
@@ -124,7 +119,7 @@ body {
 /* BARRA DE TÍTULO "PREGUNTAS" */
 .frase-conocenos {
   text-align: left;
-  background-color: #3D5F85;
+  background-color: #3D5F85; /* Azul medio */
 }
 
 .frase-conocenos h2 {
@@ -133,13 +128,10 @@ body {
   max-width: 1200px;
   margin: 0 auto;
   padding: 8px 20px;
-  box-sizing: border-box;
   
   font-family: Georgia, 'Times New Roman', Times, serif;
   font-weight: 800;
   font-size: 26px;
-  
-
 }
 
 /* =======================================================
@@ -151,14 +143,11 @@ main.faq-container {
     width: 90%; 
     max-width: 900px; 
     margin: 20px auto; 
-    padding: 0; 
-    background-color: transparent; 
+    padding: 20px; 
     
     background-color: #ffffff; 
     border-radius: 10px; 
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    padding: 20px; 
-    box-sizing: border-box;
 }
 
 .faq-item {
@@ -207,6 +196,7 @@ main.faq-container {
     color: #f5b301; 
     margin-left: 10px;
     transition: transform 0.4s ease; 
+    /* Eliminar el estilo en línea de la flecha del JS, el toggle lo maneja */
 }
 
 .faq-answer {
@@ -229,10 +219,10 @@ main.faq-container {
 }
 
 /* =======================================================
-   ESTILOS PARA BUSCADOR DE IA (NUEVOS ESTILOS)
+   ESTILOS PARA BUSCADOR DE IA (Mantenidos y optimizados)
 ========================================================== */
 .ia-search-container {
-    background-color: #e8e8e8; /* Fondo claro */
+    background-color: #e8e8e8; 
     padding: 20px;
     margin-bottom: 25px;
     border-radius: 10px;
@@ -281,9 +271,15 @@ main.faq-container {
     transition: background-color 0.2s, box-shadow 0.2s;
 }
 
-#ia-submit-button:hover {
+#ia-submit-button:hover:not(:disabled) { /* Modificado para deshabilitar hover cuando está disabled */
     background-color: #e8a800;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+#ia-submit-button:disabled {
+    background-color: #ccc;
+    color: #666;
+    cursor: not-allowed;
 }
 
 /* Caja de Respuesta de la IA */
@@ -333,7 +329,8 @@ main.faq-container {
   padding: 10px 0; 
   font-size: 22px;
 }
-div1{
+/* Corregido: div1 no es una etiqueta HTML válida, usando una clase */
+.frase-final .highlight { 
   background-color: #f5b301;
   color: #113b64;
   padding: 5px 40px; 
@@ -344,7 +341,7 @@ div1{
   font-weight: 900;
   transition: background-color 0.2s;
 }
-div1:hover {
+.frase-final .highlight:hover {
   background-color: #e8a800;
 }
 
@@ -379,23 +376,22 @@ div1:hover {
   .menu {
     display: block; 
     position: absolute;
-    top: 100px; 
+    /* Ajustado top para que comience justo debajo de la barra */
+    top: 74px; /* Ajuste basado en el tamaño de la barra superior */
     left: auto;
     right: 0; 
     width: 60%; 
     
-    height: auto; 
-    max-height: none; 
-    
     background-color: #113b64; 
     z-index: 1000; 
-    border-radius:12px; 
+    border-radius: 0 0 0 12px; /* Redondeo solo abajo/izquierda */
     border-left: 2px solid #f5b301; 
     box-shadow: -8px 8px 25px rgba(0, 0, 0, 0.8); 
     
     transform: translateX(100%); 
     transition: transform 0.3s ease-in-out; 
     
+    max-height: calc(100vh - 74px); /* Limita la altura a la pantalla visible */
     overflow-y: auto; 
     overflow-x: hidden;
   }
@@ -414,7 +410,6 @@ div1:hover {
 
   .menu li {
     width: 100%;
-    margin-bottom: 0;
     border-bottom: 1px solid rgba(245, 179, 1, 0.3); 
   }
 
@@ -428,32 +423,16 @@ div1:hover {
     text-align: left; 
     display: block;
     width: 100%;
-    padding: 25px 15px; 
+    padding: 15px; /* Reducido para móvil */
     border-radius: 0;
     box-shadow: none;
     box-sizing: border-box; 
-    transition: background-color 0.15s ease, color 0.15s ease; 
-  }
-
-  .menu a:hover {
-    background-color: #f5b301; 
-    color: #113b64;
-    box-shadow: none;
-  }
-
-  .menu a.active {
-    background-color: #f5b301; 
-    color: #113b64;
-    font-weight: 900;
   }
   
   /* Título "Conócenos" móvil */
   .frase-conocenos h2 {
     font-size: 18px; 
     padding: 10px 20px; 
-    width: auto; 
-    max-width: none;
-    margin: 0;
   }
 
   /* --- CONTENIDO "FAQ" MÓVIL --- */
@@ -461,18 +440,12 @@ div1:hover {
         width: 100%;
         margin: 0;
         padding: 10px;
-        box-sizing: border-box;
-        display: block;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); 
+        box-shadow: none; 
         border-radius: 0; 
     }
     
     .faq-item {
         margin-bottom: 10px;
-        border-bottom: 5px solid #f5b301;
-    }
-    .faq-item:last-child {
-        margin-bottom: 0; 
     }
     
     .faq-question {
@@ -486,8 +459,6 @@ div1:hover {
     
     .faq-answer p {
         font-size: 13px;
-        padding-bottom: 10px;
-        text-align: left;
     }
 
     /* --- ESTILOS DE MÓVIL PARA EL BUSCADOR DE IA --- */
@@ -520,21 +491,17 @@ div1:hover {
 
   /* --- FOOTER MÓVIL --- */
   .mensaje-final { 
-    font-size: 8px; 
+    font-size: 14px; /* Aumentado de 8px a 14px para legibilidad */
     padding: 0 15px; 
     margin: 10px auto; 
-    background-color: transparent; 
   }
   .frase-final { 
     font-size: 18px; 
-    padding: 15px; 
-    line-height: 1.4;
+    padding: 15px 10px; 
   }
-  div1{ 
-    padding: 6px 25px; 
+  .frase-final .highlight { /* Usa la clase highlight corregida */
+    padding: 6px 20px; 
     font-size: 18px;
-    margin-top: 0px;
-    font-weight: 900;
   }
 
 } /* --- FIN DEL @media query --- */
