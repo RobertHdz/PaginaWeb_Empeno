@@ -55,7 +55,6 @@ body {
   font-weight: 900;
 }
 
-/* --- MODIFICACIÓN 1: LUNA centrado con AUTO EMPEÑO --- */
 .barra-superior h1 span {
   display: block;
   font-size: 0.85em;
@@ -156,7 +155,6 @@ main {
   margin: 0 auto;
   background-color: white; 
   padding: 20px 0;
-  /* Nuevo diseño para desktop - Borde redondeado y sombra */
   border-radius: 10px; 
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); 
 }
@@ -191,7 +189,6 @@ section.info {
   padding-left: 30px; 
 }
 .lista-beneficios li::before {
-  /* Ícono Unicode para la lista de beneficios (Desktop) */
   content: "\2713"; /* Checkmark */
   color: #f5b301; /* Color amarillo */
   font-size: 20px;
@@ -219,7 +216,6 @@ section.info {
   border: 3px solid #f5b301;
 }
 
-/* --- MODIFICACIÓN 3: Recuadro de PRÉSTAMOS (Estético) --- */
 .prestamos {
   display: block;
   background-color: #fdd348; /* Amarillo muy claro */
@@ -255,20 +251,17 @@ section.info {
 }
 .lista-prestamos li {
   position: relative;
-  /* Ajustamos padding y alineación para viñetas en desktop */
   padding-left: 20px; /* Espacio para la viñeta */
   margin-bottom: 5px;
   text-align: left; /* Alineado a la izquierda */
 }
 .lista-prestamos li::before {
-  /* Viñeta (bullet) estándar, alineada a la izquierda */
   content: "\2022"; /* Bullet point */
   color: #113b64; /* Color azul (como en móvil) */
   font-size: 16px;
   position: absolute;
   left: 0;
   top: 0;
-  /* Se eliminan transform, top: -5px, left: 50% */
 }
 .aparatos {
   text-align: center;
@@ -286,7 +279,6 @@ section.info {
 ========================================================== */
 
 .mensaje-final {
-  /* CLAVE: Restaurando valores originales para desktop */
   text-align: center;
   color: #113b64;
   font-weight: 700;
@@ -297,7 +289,6 @@ section.info {
 }
 
 .frase-final {
-  /* CLAVE: Restaurando valores originales para desktop */
   text-align: center;
   background-color: #113b64; 
   color: white;
@@ -306,7 +297,6 @@ section.info {
   font-size: 22px;
 }
 div1{
-  /* Botón (sin cambios, eran correctos) */
   background-color: #f5b301;
   color: #113b64;
   padding: 8px 40px; 
@@ -346,7 +336,6 @@ div1:hover {
     text-shadow: 0 0 5px rgba(245, 179, 1, 0.5); 
   }
   
-/* --- MENÚ: Despliegue Suave (ALTURA AUTOMÁTICA CORREGIDA) --- */
   .menu {
     display: block; 
     position: absolute;
@@ -355,10 +344,8 @@ div1:hover {
     right: 0; 
     width: 60%; 
     
-    /* --- LA CORRECCIÓN DEFINITIVA --- */
     height: auto; /* 1. Altura automática */
     max-height: none; /* 2. Sin altura máxima */
-    /* (Asegúrate de que no haya NINGUNA otra línea 'height' o 'max-height' para este selector) */
     
     background-color: #113b64; 
     z-index: 1000; 
@@ -369,11 +356,10 @@ div1:hover {
     transform: translateX(100%); 
     transition: transform 0.3s ease-in-out; 
     
-    overflow-y: auto; /* Permitir scroll (buena práctica) */
+    overflow-y: auto; 
     overflow-x: hidden;
   }
   
-  /* Estado Activo: Desplazar a la posición visible */
   .hamburger-toggle:checked ~ .menu {
     display: block !important; 
     transform: translateX(0); 
@@ -402,7 +388,7 @@ div1:hover {
     text-align: left; 
     display: block;
     width: 100%;
-    padding: 25px 15px; /* Aumentado para mejor tacto */
+    padding: 25px 15px; 
     border-radius: 0;
     box-shadow: none;
     box-sizing: border-box; 
@@ -514,7 +500,6 @@ div1:hover {
 
   .aparatos { font-size: 14px; margin-top: 10px; } 
   
-  /* ORDEN DE POSICIÓN (2): Lista de Beneficios (sin cambios relevantes) */
   .lista-beneficios { 
     flex-basis: auto; 
     align-self: center;

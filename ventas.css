@@ -7,7 +7,6 @@ html {
 }
 
 body {
-  /* Fuente Serif (para coincidir con Home/Us) */
   font-family: Georgia, 'Times New Roman', Times, serif; 
   margin: 0;
   background-color: #f2f2f2; /* Gris claro */
@@ -20,7 +19,6 @@ body {
 
 /* =======================================================
    ESTILOS DE ENCABEZADO Y NAVEGACIÓN (DESKTOP)
-   (Idénticos a home.css)
 ========================================================== */
 
 /* ENCABEZADO */
@@ -65,7 +63,7 @@ body {
   font-size: 0.85em;
   color: #f5b301;
   font-weight: 700;
-  text-align: center; /* Centrado */
+  text-align: center; 
 }
 
 /* MENÚ (DESKTOP) */
@@ -147,7 +145,7 @@ body {
 }
 
 /* =======================================================
-   CONTENIDO PRINCIPAL "VENTAS" (Estilos propios)
+   CONTENIDO PRINCIPAL "VENTAS" 
 ========================================================== */
 
 main.sales-container {
@@ -157,10 +155,7 @@ main.sales-container {
   margin: 20px auto;
   padding: 20px 0;
   background-color: transparent;
-  
-  /* Agregamos bordes y sombra como en home.css */
   border-radius: 10px; 
-  /* La sombra no se aplica aquí, se aplica a las tarjetas */
 }
 
 .category-section {
@@ -237,7 +232,7 @@ main.sales-container {
 }
 
 /* =======================================================
-   ESTILOS DEL BANNER DE FACEBOOK (ACTUALIZADO)
+   ESTILOS DEL BANNER DE FACEBOOK 
 ========================================================== */
 .facebook-banner {
   margin-top: 0px; 
@@ -258,7 +253,7 @@ main.sales-container {
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url('images/LOGOEMP.png'); /* Ruta corregida */
+  background-image: url('images/LOGOEMP.png'); 
   background-repeat: no-repeat;
   background-position: center center;
   background-size: 180px; 
@@ -312,7 +307,7 @@ main.sales-container {
 
 
 /* =======================================================
-   FOOTER Y MENSAJE FINAL (Idénticos a home.css)
+   FOOTER Y MENSAJE FINAL 
 ========================================================== */
 
 .mensaje-final {
@@ -330,13 +325,13 @@ main.sales-container {
   background-color: #113b64;
   color: white;
   font-weight: 800;
-  padding: 10px 0; /* Menos alto */
+  padding: 10px 0; 
   font-size: 22px;
 }
 div1{
   background-color: #f5b301;
   color: #113b64;
-  padding: 5px 40px; /* Menos alto */
+  padding: 5px 40px; 
   border-radius: 8px;
   display: inline-block;
   font-size: 20px;
@@ -355,7 +350,7 @@ div1:hover {
 */
 @media (max-width: 768px) {
 
-  /* --- ENCABEZADO Y MENÚ (Idéntico a home.css) --- */
+  /* --- ENCABEZADO Y MENÚ  --- */
   
   .barra-superior { padding: 20px; justify-content: space-between; }
   
@@ -375,19 +370,15 @@ div1:hover {
     text-shadow: 0 0 5px rgba(245, 179, 1, 0.5); 
   }
   
-/* --- MENÚ: Despliegue Suave (ALTURA AUTOMÁTICA CORREGIDA) --- */
   .menu {
     display: block; 
     position: absolute;
     top: 100px; 
     left: auto;
     right: 0; 
-    width: 60%; 
-    
-    /* --- LA CORRECCIÓN DEFINITIVA --- */
-    height: auto; /* 1. Altura automática */
-    max-height: none; /* 2. Sin altura máxima */
-    /* (Asegúrate de que no haya NINGUNA otra línea 'height' o 'max-height' para este selector) */
+    width: 60%;  
+    height: auto; 
+    max-height: none; 
     
     background-color: #113b64; 
     z-index: 1000; 
@@ -398,7 +389,7 @@ div1:hover {
     transform: translateX(100%); 
     transition: transform 0.3s ease-in-out; 
     
-    overflow-y: auto; /* Permitir scroll (buena práctica) */
+    overflow-y: auto; 
     overflow-x: hidden;
   }
   
@@ -449,7 +440,6 @@ div1:hover {
     font-weight: 900;
   }
   
-  /* Título "Conócenos" móvil (Idéntico a home.css) */
   .frase-conocenos h2 {
     font-size: 18px; 
     padding: 10px 20px; 
@@ -523,12 +513,12 @@ div1:hover {
     margin-bottom: 10px; /* Reducido para móvil */
   }
 
-  /* --- FOOTER MÓVIL (Idéntico a home.css) --- */
+  /* --- FOOTER MÓVIL  --- */
   .mensaje-final { 
-    font-size: 8px; /* Reducido como en home.css */
+    font-size: 8px; 
     padding: 0 15px; 
     margin: 10px auto; 
-    background-color: transparent; /* Como en home.css */
+    background-color: transparent; 
   }
   .frase-final { 
     font-size: 18px; 

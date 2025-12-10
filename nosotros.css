@@ -3,25 +3,21 @@
 ========================================================== */
 html {
   height: 100%;
-  /* 🔑 SOLUCIÓN CLAVE 1: Aplicar overflow-x: hidden al elemento que envuelve todo (html) */
   overflow-x: hidden; 
 }
 
 body {
-  /* Fuente Serif como en Us.css */
   font-family: Georgia, 'Times New Roman', Times, serif; 
   margin: 0;
   background-color: #f2f2f2; /* Gris claro */
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  /* 🔑 SOLUCIÓN CLAVE 2: Asegurar que el body no tenga más ancho que la vista (viewport) */
   width: 100vw; 
 }
 
 /* =======================================================
    ESTILOS DE ENCABEZADO Y NAVEGACIÓN (DESKTOP)
-   (Idénticos a home.css)
 ========================================================== */
 
 /* ENCABEZADO */
@@ -127,7 +123,7 @@ body {
 .hamburger-button { display: none; }
 
 
-/* BARRA DE TÍTULO "NOSOTROS" (CORREGIDO Y CENTRADO) */
+/* BARRA DE TÍTULO "NOSOTROS" */
 .frase-conocenos {
   text-align: left;
   background-color: #3D5F85;
@@ -136,8 +132,8 @@ body {
 .frase-conocenos h2 {
   color: white;
   width: 90%;
-  max-width: 1200px; /* Ancho máximo (igual que el main de home) */
-  margin: 0 auto; /* <-- CORRECCIÓN PARA CENTRAR */
+  max-width: 1200px; 
+  margin: 0 auto; 
   padding: 8px 20px;
   box-sizing: border-box;
   
@@ -147,19 +143,17 @@ body {
 }
 
 /* =======================================================
-   CONTENIDO PRINCIPAL "NOSOTROS" (Estilos propios)
+   CONTENIDO PRINCIPAL "NOSOTROS" 
 ========================================================== */
 
 main {
   flex-grow: 1;
-  /* --- ESTILOS DESKTOP "NOSOTROS" --- */
   width: 80%; 
-  max-width: 900px; /* Este ancho es más pequeño que el de home, pero respeta tu diseño */
-  margin: 20px auto; /* Añadido margen superior/inferior */
+  max-width: 900px; 
+  margin: 20px auto; 
   background-color: #fafafa; 
   padding: 20px 0;
   
-  /* Agregamos bordes y sombra como en home.css */
   border-radius: 10px; 
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); 
 }
@@ -237,7 +231,7 @@ main .parrafo-inferior {
 
 
 /* =======================================================
-   FOOTER Y MENSAJE FINAL (Estilos originales que me enviaste)
+   FOOTER Y MENSAJE FINAL 
 ========================================================== */
 
 .mensaje-final {
@@ -255,13 +249,13 @@ main .parrafo-inferior {
   background-color: #113b64;
   color: white;
   font-weight: 800;
-  padding: 10px 0; /* Dejamos el padding de 10px que ya tenías */
+  padding: 10px 0; 
   font-size: 22px;
 }
 div1{
   background-color: #f5b301;
   color: #113b64;
-  padding: 5px 40px; /* Dejamos el padding de 5px que ya tenías */
+  padding: 5px 40px; 
   border-radius: 8px;
   display: inline-block;
   font-size: 20px;
@@ -280,7 +274,7 @@ div1:hover {
 */
 @media (max-width: 768px) {
 
-  /* --- ENCABEZADO Y MENÚ (Idéntico a home.css) --- */
+  /* --- ENCABEZADO Y MENÚ  --- */
   
   .barra-superior { padding: 20px; justify-content: space-between; }
   
@@ -299,7 +293,7 @@ div1:hover {
     text-shadow: 0 0 5px rgba(245, 179, 1, 0.5); 
   }
   
-/* --- MENÚ: Despliegue Suave (ALTURA AUTOMÁTICA CORREGIDA) --- */
+/* --- MENÚ: Despliegue Suave  --- */
   .menu {
     display: block; 
     position: absolute;
@@ -308,8 +302,8 @@ div1:hover {
     right: 0; 
     width: 60%; 
     
-    height: auto; /* Altura automática */
-    max-height: none; /* Sin altura máxima */
+    height: auto; 
+    max-height: none; 
     
     background-color: #113b64; 
     z-index: 1000; 
@@ -395,7 +389,6 @@ div1:hover {
     width: auto; 
   }
   
-  /* --- CAMBIO 1: TÍTULOS A LA IZQUIERDA --- */
   main h5 {
     font-size: 18px; 
     margin-bottom: 15px;
@@ -418,7 +411,6 @@ div1:hover {
       margin-right: auto;
   }
   
-  /* --- CAMBIO 2: TEXTO JUSTIFICADO --- */
   main p {
     font-size: 14px; 
     text-align: justify; 
@@ -426,7 +418,6 @@ div1:hover {
   }
 
 
-  /* --- FOOTER MÓVIL (Sin cambios, como lo enviaste) --- */
   .mensaje-final { 
     font-size: 8px; 
     padding: 0 15px; 

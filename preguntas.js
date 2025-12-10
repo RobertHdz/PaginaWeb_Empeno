@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // [CÓDIGO DE ACORDEÓN OMITIDO POR BREVEDAD - Sin cambios]
     const questions = document.querySelectorAll('.faq-question');
     questions.forEach(question => {
         question.addEventListener('click', () => {
@@ -30,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // =====================================================
-    // CÓDIGO PARA EL BUSCADOR DE IA (SOLUCIÓN DEFINITIVA POR SCORING)
+    // CÓDIGO PARA EL BUSCADOR DE IA 
     // =====================================================
     const input = document.getElementById('ia-question-input');
     const button = document.getElementById('ia-submit-button');
@@ -39,7 +38,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     /**
      * Define los temas y sus palabras clave (keywords) CRÍTICAS. 
-     * Se eliminan palabras genéricas como "que", "es", "un" para evitar conflictos.
      */
     const knowledgeBase = {
         
