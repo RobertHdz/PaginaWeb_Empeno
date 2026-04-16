@@ -1,455 +1,155 @@
 /* =======================================================
-   ESTRUCTURA PRINCIPAL Y FUENTES 
-========================================================== */
-
-html, body {
-  overflow-x: hidden;
-  max-width: 100%;
-  box-sizing: border-box;
-}
-
-*, *::before, *::after {
-  box-sizing: inherit; 
-}
-
-body {
-  font-family: Arial, Helvetica, sans-serif; 
-  margin: 0;
-  background-color: #f2f2f2; /* Gris claro */
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
-
-/* =======================================================
-   ESTILOS DE ENCABEZADO Y NAVEGACIÓN (DESKTOP)
-========================================================== */
-
-/* ENCABEZADO */
-.barra-superior {
-  background-color: #113b64; /* Azul Oscuro */
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center; /* Centrado en desktop */
-  gap: 10px;
-  padding: 10px;
-  position: relative; 
-  border-bottom: 4px solid #f5b301; /* Amarillo */
-}
-
-.logo-mini img {
-  width: 50px; 
-  height: 50px;
-  display: block; /* Evita espacio inferior */
-}
-
-.header-title-group {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-}
-
-.barra-superior h1 {
-  font-family: Georgia, 'Times New Roman', Times, serif;
-  font-size: 28px;
-  margin: 0;
-  line-height: 1.1;
-  text-align: left;
-  font-weight: 900;
-}
-
-.barra-superior h1 span {
-  display: block;
-  font-size: 0.85em;
-  color: #f5b301;
-  font-weight: 700;
-  text-align: center; 
-}
-
-/* MENÚ (DESKTOP) */
-.menu {
-  display: block; 
-  position: static;
-}
-
-.menu ul {
-  list-style: none;
-  display: flex;
-  justify-content: center;
-  background-color: #e8e8e8;
-  padding: 20px 0;
-  margin: 0;
-  flex-direction: row; 
-  gap: 20px; 
-}
-
-.menu a {
-  text-decoration: none;
-  color: white;
-  transition: all 0.3s ease;
-  border-radius: 5px;
-  background-color: #2a5a8a; /* Azul intermedio */
-  box-shadow: 0 1px 3px rgba(0,0,0,0.15); 
-  display: inline-block;  
-  width: 180px;           
-  text-align: center;     
-  padding: 8px 0;         
-  font-weight: 700;
-}
-
-.menu a:hover {
-  color: #113b64;
-  background-color: #f5b301;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.2); 
-}
-
-.menu a.active {
-  background-color: #c3c1bb; /* Gris claro */
-  color: #113b64;
-  box-shadow: none; 
-}
-
-
-/* --- Botón Hamburguesa (Oculto en Desktop) --- */
-.hamburger-toggle { display: none; }
-.hamburger-button { display: none; }
-
-
-/* BARRA DE TÍTULO "PREGUNTAS" */
-.frase-conocenos {
-  text-align: left;
-  background-color: #3D5F85; /* Azul medio */
-}
-
-.frase-conocenos h2 {
-  color: white;
-  width: 90%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 8px 20px;
-  
-  font-family: Georgia, 'Times New Roman', Times, serif;
-  font-weight: 800;
-  font-size: 26px;
-}
-
-/* =======================================================
-   CONTENIDO PRINCIPAL "PREGUNTAS" 
+   CONTENIDO PRINCIPAL "PREGUNTAS" (Específico)
 ========================================================== */
 
 main.faq-container {
     flex-grow: 1; 
     width: 90%; 
-    max-width: 900px; 
-    margin: 20px auto; 
+    max-width: 1000px; 
+    margin: 30px auto; 
     padding: 20px; 
-    
-    background-color: #ffffff; 
+    background-color: var(--white); 
     border-radius: 10px; 
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--shadow);
 }
 
 .faq-item {
-    background-color: white;
+    background-color: var(--white);
     margin-bottom: 15px; 
     border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
     overflow: hidden; 
-    border: 1px solid #ddd; 
-    border-bottom: 5px solid #f5b301; 
+    border: 1px solid #eee; 
+    border-bottom: 4px solid var(--accent-yellow); 
 }
-
-.faq-item:last-child {
-    margin-bottom: 0; 
-}
-
 
 .faq-question {
-    background-color: white;
-    color: #113b64; 
+    background-color: var(--white);
+    color: var(--primary-blue); 
     cursor: pointer;
-    padding: 18px 25px;
+    padding: 20px 25px;
     width: 100%;
     border: none;
     text-align: left;
     outline: none;
-    font-size: 17px;
+    font-size: 1.1rem;
     font-weight: 700;
-    transition: background-color 0.3s ease;
+    transition: var(--transition);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-family: Arial, Helvetica, sans-serif; 
 }
 
 .faq-question:hover {
-    background-color: #f0f0f0;
+    background-color: #f8f9fa;
 }
 
 .faq-item.active .faq-question {
-    background-color: #e8e8e8;
+    background-color: #f1f3f5;
 }
 
 .arrow-icon {
-    font-size: 20px;
-    color: #f5b301; 
-    margin-left: 10px;
+    font-size: 18px;
+    color: var(--accent-yellow); 
     transition: transform 0.4s ease; 
 }
 
 .faq-answer {
     padding: 0 25px;
-    background-color: #f9f9f9;
+    background-color: #fcfcfc;
     max-height: 0; 
     overflow: hidden; 
     transition: max-height 0.4s ease-out; 
 }
 
 .faq-answer p {
-    color: #333;
-    font-size: 15px;
-    line-height: 1.6;
-    padding-top: 5px;
-    padding-bottom: 15px; 
+    color: #444;
+    font-size: 1rem;
+    line-height: 1.7;
+    padding-bottom: 20px; 
     margin: 0;
-    text-align: justify;
-    font-family: Arial, Helvetica, sans-serif; 
 }
 
 /* =======================================================
    ESTILOS PARA BUSCADOR DE IA 
 ========================================================== */
 .ia-search-container {
-    background-color: #e8e8e8; 
-    padding: 20px;
-    margin-bottom: 25px;
-    border-radius: 10px;
-    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.05);
-    border: 2px solid #c3c1bb;
+    background-color: #f8f9fa; 
+    padding: 30px;
+    margin-top: 40px;
+    border-radius: 12px;
+    border: 2px solid #e9ecef;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);
 }
 
 .ia-search-container h3 {
-    color: #113b64;
-    font-size: 18px;
-    font-family: Arial, Helvetica, sans-serif;
-    margin-top: 0;
-    margin-bottom: 15px;
-    font-weight: 700;
+    color: var(--primary-blue);
+    font-size: 1.25rem;
+    margin-bottom: 20px;
 }
 
 .search-input-group {
     display: flex;
-    gap: 10px;
+    gap: 15px;
 }
 
 #ia-question-input {
     flex-grow: 1;
-    padding: 10px 15px;
-    border: 2px solid #113b64;
-    border-radius: 5px;
-    font-size: 16px;
-    font-family: Arial, Helvetica, sans-serif;
+    padding: 12px 20px;
+    border: 2px solid #ced4da;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: var(--transition);
 }
 
 #ia-question-input:focus {
     outline: none;
-    border-color: #f5b301;
-    box-shadow: 0 0 5px rgba(245, 179, 1, 0.5);
+    border-color: var(--primary-blue);
+    box-shadow: 0 0 0 3px rgba(17, 59, 100, 0.1);
 }
 
 #ia-submit-button {
-    background-color: #f5b301;
-    color: #113b64;
+    background-color: var(--accent-yellow);
+    color: var(--primary-blue);
     border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
+    padding: 12px 30px;
+    border-radius: 8px;
     cursor: pointer;
-    font-weight: 700;
-    font-size: 16px;
-    transition: background-color 0.2s, box-shadow 0.2s;
+    font-weight: 800;
+    font-size: 1rem;
+    transition: var(--transition);
 }
 
 #ia-submit-button:hover:not(:disabled) { 
-    background-color: #e8a800;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    background-color: var(--accent-yellow-dark);
+    transform: translateY(-2px);
 }
 
-#ia-submit-button:disabled {
-    background-color: #ccc;
-    color: #666;
-    cursor: not-allowed;
-}
-
-/* Caja de Respuesta de la IA */
 .ia-response-box {
-    margin-top: 20px;
-    padding: 15px;
-    background-color: white;
-    border: 1px solid #113b64;
-    border-left: 5px solid #113b64;
-    border-radius: 5px;
-    animation: fadeIn 0.5s ease-out;
+    margin-top: 25px;
+    padding: 20px;
+    background-color: var(--white);
+    border-left: 5px solid var(--primary-blue);
+    border-radius: 8px;
+    box-shadow: var(--shadow);
 }
-
-.ia-response-box p {
-    color: #333;
-    font-family: Arial, Helvetica, sans-serif;
-    margin: 0;
-    line-height: 1.5;
-}
-
-/* Animación simple */
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(-10px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-
-/* =======================================================
-   FOOTER Y MENSAJE FINAL
-========================================================== */
-
-.mensaje-final {
-  text-align: center;
-  color: #113b64;
-  font-weight: 700;
-  margin: 40px auto;
-  padding: 0 10%;
-  font-size: 18px;
-  background: none; 
-}
-
-.frase-final {
-  text-align: center;
-  background-color: #113b64;
-  color: white;
-  font-weight: 800;
-  padding: 10px 0; 
-  font-size: 22px;
-}
-.frase-final .highlight { 
-  background-color: #f5b301;
-  color: #113b64;
-  padding: 5px 40px; 
-  border-radius: 8px;
-  display: inline-block;
-  font-size: 20px;
-  margin-top: 0px;
-  font-weight: 900;
-  transition: background-color 0.2s;
-}
-.frase-final .highlight:hover {
-  background-color: #e8a800;
-}
-
 
 /* ============================================================
-   ESTILOS PARA MÓVIL (MEDIA QUERY)
-============================================================
-*/
+   RESPONSIVE (ESPECÍFICO)
+============================================================ */
+
 @media (max-width: 768px) {
-
-  /* --- ENCABEZADO Y MENÚ --- */
-  
-  .barra-superior { padding: 20px; justify-content: space-between; }
-  
-  /* Botón Hamburguesa */
-  .hamburger-button { 
-    display: block; 
-    position: absolute;
-    right: 20px;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 1001;
-    background: none; 
-    border: none; 
-    color: #f5b301; 
-    font-size: 32px; 
-    cursor: pointer; 
-    text-shadow: 0 0 5px rgba(245, 179, 1, 0.5); 
-  }
-  
-/* --- MENÚ: Despliegue Suave --- */
-  .menu {
-    display: block; 
-    position: absolute;
-    top: 74px; 
-    left: auto;
-    right: 0; 
-    width: 60%; 
-    
-    background-color: #113b64; 
-    z-index: 1000; 
-    border-radius: 0 0 0 12px; /* Redondeo solo abajo/izquierda */
-    border-left: 2px solid #f5b301; 
-    box-shadow: -8px 8px 25px rgba(0, 0, 0, 0.8); 
-    
-    transform: translateX(100%); 
-    visibility: hidden;
-    transition: transform 0.3s ease-in-out, visibility 0.3s ease-in-out; 
-    
-    max-height: calc(100vh - 74px); /* Limita la altura a la pantalla visible */
-    overflow-y: auto; 
-    overflow-x: hidden;
-  }
-  
-  .hamburger-toggle:checked ~ .menu {
-    display: block !important; 
-    transform: translateX(0); 
-    visibility: visible;
-  }
-
-  .menu ul {
-    flex-direction: column;
-    padding: 0;
-    gap: 0;
-    background-color: transparent;
-  }
-
-  .menu li {
-    width: 100%;
-    border-bottom: 1px solid rgba(245, 179, 1, 0.3); 
-  }
-
-  .menu li:last-child {
-      border-bottom: none;
-  }
-
-  .menu a {
-    background-color: transparent; 
-    color: white; 
-    text-align: left; 
-    display: block;
-    width: 100%;
-    padding: 15px; /* Reducido para móvil */
-    border-radius: 0;
-    box-shadow: none;
-    box-sizing: border-box; 
-  }
-  
-  /* Título "Conócenos" móvil */
-  .frase-conocenos h2 {
-    font-size: 18px; 
-    padding: 10px 20px; 
-  }
-
-  /* --- CONTENIDO "FAQ" MÓVIL --- */
-  main.faq-container {
+    main.faq-container {
         width: 100%;
         margin: 0;
-        padding: 10px;
+        padding: 15px;
         box-shadow: none; 
         border-radius: 0; 
     }
     
-    .faq-item {
-        margin-bottom: 10px;
-    }
-    
     .faq-question {
-        padding: 15px 15px;
-        font-size: 15px;
+        padding: 15px;
+        font-size: 1rem;
     }
     
     .faq-answer {
@@ -457,50 +157,22 @@ main.faq-container {
     }
     
     .faq-answer p {
-        font-size: 13px;
+        font-size: 0.95rem;
     }
 
-    /* --- ESTILOS DE MÓVIL PARA EL BUSCADOR DE IA --- */
     .ia-search-container {
-        padding: 15px;
-        margin-bottom: 15px;
+        padding: 20px 15px;
     }
     
     .search-input-group {
         flex-direction: column;
-        gap: 8px;
-    }
-
-    #ia-question-input {
-        padding: 12px;
-        font-size: 14px;
     }
 
     #ia-submit-button {
-        padding: 12px;
-        font-size: 15px;
+        width: 100%;
     }
-
-    .ia-search-container h3 {
-        font-size: 16px;
-        margin-bottom: 10px;
-    }
-    /* --- FIN DE ESTILOS DE MÓVIL PARA EL BUSCADOR DE IA --- */
-
-
-  /* --- FOOTER MÓVIL --- */
-  .mensaje-final { 
-    font-size: 14px; /* Aumentado de 8px a 14px para legibilidad */
-    padding: 0 15px; 
-    margin: 10px auto; 
-  }
-  .frase-final { 
-    font-size: 18px; 
-    padding: 15px 10px; 
-  }
-  .frase-final .highlight { /* Usa la clase highlight corregida */
-    padding: 6px 20px; 
-    font-size: 18px;
+}
+ize: 18px;
   }
 
 } /* --- FIN DEL @media query --- */

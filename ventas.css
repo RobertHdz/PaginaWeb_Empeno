@@ -1,246 +1,83 @@
 /* =======================================================
-   ESTRUCTURA PRINCIPAL Y FUENTES 
-========================================================== */
-
-html, body {
-  overflow-x: hidden;
-  max-width: 100%;
-}
-
-body {
-  font-family: Georgia, 'Times New Roman', Times, serif; 
-  margin: 0;
-  background-color: #f2f2f2; /* Gris claro */
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
-
-/* =======================================================
-   ESTILOS DE ENCABEZADO Y NAVEGACIÓN (DESKTOP)
-========================================================== */
-
-/* ENCABEZADO */
-.barra-superior {
-  background-color: #113b64; 
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  padding: 10px;
-  position: relative; /* Para el botón de hamburguesa */
-  border-bottom: 4px solid #f5b301;
-}
-
-.logo-mini {
-  display: block;
-}
-
-.logo-mini img {
-  width: 50px; 
-  height: 50px;
-}
-
-.header-title-group {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-}
-
-.barra-superior h1 {
-  font-family: Georgia, 'Times New Roman', Times, serif;
-  font-size: 28px;
-  margin: 0;
-  line-height: 1.1;
-  text-align: left;
-  font-weight: 900;
-}
-
-.barra-superior h1 span {
-  display: block;
-  font-size: 0.85em;
-  color: #f5b301;
-  font-weight: 700;
-  text-align: center; 
-}
-
-/* MENÚ (DESKTOP) */
-.menu {
-  display: block; 
-  position: static;
-}
-
-.menu ul {
-  list-style: none;
-  display: flex;
-  justify-content: center;
-  background-color: #e8e8e8;
-  padding: 20px 0;
-  margin: 0;
-  flex-direction: row; /* Horizontalidad en desktop */
-  gap: 20px; 
-}
-
-.menu li {
-  margin: 0;
-  font-weight: 700;
-  border: none;
-}
-
-/* Estado normal de los botones */
-.menu a {
-  text-decoration: none;
-  color: white;
-  transition: all 0.3s ease;
-  border-radius: 5px;
-  background-color: #2a5a8a; 
-  box-shadow: 0 1px 3px rgba(0,0,0,0.15); 
-  display: inline-block;  
-  width: 180px;           
-  text-align: center;     
-  padding: 8px 0;         
-  box-sizing: border-box; 
-}
-
-/* Botón al pasar el cursor (Hover) */
-.menu a:hover {
-  color: #113b64;
-  background-color: #f5b301;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.2); 
-}
-
-/* Botón "activo" (en qué página estás) para Desktop */
-.menu a.active {
-  background-color: #c3c1bb; 
-  color: #113b64;
-  box-shadow: none; 
-}
-
-
-/* --- Botón Hamburguesa (Oculto en Desktop) --- */
-.hamburger-toggle { display: none; }
-.hamburger-button { display: none; }
-
-
-/* BARRA DE TÍTULO "VENTAS" (Idéntica a home.css) */
-.frase-conocenos {
-  text-align: left;
-  background-color: #3D5F85;
-}
-
-.frase-conocenos h2 {
-  color: white;
-  width: 90%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 8px 0px;
-  box-sizing: border-box;
-  
-  font-family: Georgia, 'Times New Roman', Times, serif;
-  font-weight: 800;
-  font-size: 26px;
-
-}
-
-/* =======================================================
-   CONTENIDO PRINCIPAL "VENTAS" 
+   CONTENIDO PRINCIPAL "VENTAS" (Específico)
 ========================================================== */
 
 main.sales-container {
   flex-grow: 1;
   width: 90%;
-  max-width: 1000px;
+  max-width: 1200px;
   margin: 20px auto;
-  padding: 20px 0;
-  background-color: transparent;
-  border-radius: 10px; 
+  padding: 40px 0;
 }
 
 .category-section {
-  margin-bottom: 40px;
+  margin-bottom: 60px;
 }
 
-/* --- ESTILO MEJORADO PARA TÍTULOS DE CATEGORÍA --- */
 .category-title {
-  color: #113b64;
-  font-size: 22px; 
+  color: var(--primary-blue);
+  font-size: 1.5rem; 
   font-weight: 900;
   text-transform: uppercase;
-  margin: 0 0 20px 0;
+  margin-bottom: 25px;
   display: inline-block;
-  font-family: Arial, Helvetica, sans-serif;
-  border-bottom: 4px solid #f5b301;
+  border-bottom: 4px solid var(--accent-yellow);
   padding-bottom: 5px; 
-  
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1); 
 }
 
-/* --- REGLAS DE CUADRÍCULA SIMPLIFICADAS --- */
 .items-grid {
   display: grid;
-  gap: 20px;
-  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
 }
 
-/* Excepción: La primera sección (Joyería) tendrá 2 columnas */
+/* Specific adjustment for Jewelry to be 2 columns on larger screens if desired, 
+   but auto-fill is more robust */
 .category-section:first-child .items-grid {
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
 }
 
-
-/* Tarjeta individual de cada artículo - MÁS ATRACTIVA */
 .item-card {
-  background-color: #ffffff;
+  background-color: var(--white);
   border-radius: 12px; 
   border: 1px solid #ddd; 
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--shadow);
   overflow: hidden; 
   text-align: center;
-  transition: all 0.3s ease; 
+  transition: var(--transition); 
 }
 
-/* Animación de Hover más notable */
 .item-card:hover {
-  transform: scale(1.03); 
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-  border-color: #113b64; 
+  transform: translateY(-5px); 
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  border-color: var(--primary-blue); 
 }
 
 .item-card img {
   width: 100%;
-  height: 200px; 
+  height: 250px; 
   object-fit: cover; 
   display: block;
   background-color: #eee;
-  border-bottom: 3px solid #f5b301; 
+  border-bottom: 3px solid var(--accent-yellow); 
 }
 
 .item-card p {
-  color: #113b64;
+  color: var(--primary-blue);
   font-weight: 800; 
-  font-size: 17px; 
-  margin: 15px 0;
-  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.1rem; 
+  margin: 20px 0;
   text-transform: uppercase;
 }
 
-/* AJUSTE PARA EL ESPACIO: Reducimos el margen de la última sección de categorías */
-.category-facebook-link {
-    margin-bottom: 20px; /* Reducido de 40px a 20px */
-}
-
-/* =======================================================
-   ESTILOS DEL BANNER DE FACEBOOK 
-========================================================== */
+/* FACEBOOK BANNER */
 .facebook-banner {
-  margin-top: 0px; 
-  padding: 30px;
-  background-color: #f8f8f8; 
-  border: 1px solid #ddd; 
+  padding: 40px;
+  background-color: var(--white); 
+  border: 2px solid #ddd; 
   border-radius: 15px; 
   text-align: center;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15); 
+  box-shadow: var(--shadow);
   position: relative; 
   overflow: hidden; 
 }
@@ -254,19 +91,18 @@ main.sales-container {
   height: 100%;
   background-image: url('images/LOGOEMP.png'); 
   background-repeat: no-repeat;
-  background-position: center center;
-  background-size: 180px; 
-  opacity: 0.15; 
+  background-position: center;
+  background-size: 200px; 
+  opacity: 0.1; 
   z-index: 0; 
   pointer-events: none; 
 }
 
 .banner-text {
-  font-size: 20px;
-  color: #113b64;
+  font-size: 1.25rem;
+  color: var(--primary-blue);
   font-weight: 700;
-  margin-bottom: 20px;
-  line-height: 1.4;
+  margin-bottom: 25px;
   position: relative; 
   z-index: 1; 
 }
@@ -275,23 +111,21 @@ main.sales-container {
   display: inline-flex; 
   align-items: center;
   text-decoration: none;
-  background: linear-gradient(to right, #3b5998, #4c70ba); 
-  color: white;
+  background: linear-gradient(135deg, #1877f2, #166fe5);
+  color: var(--white);
   padding: 15px 35px; 
   border-radius: 50px;
   font-weight: 900; 
-  font-size: 19px;
-  transition: all 0.3s ease;
-  letter-spacing: 1px;
-  border: 2px solid #f5b301; 
+  font-size: 1.1rem;
+  transition: var(--transition);
+  border: 2px solid var(--accent-yellow); 
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   position: relative;
   z-index: 1; 
 }
 
 .facebook-button:hover {
-  background: linear-gradient(to right, #2d4373, #3b5998); 
-  transform: translateY(-3px) scale(1.02);
+  transform: translateY(-3px);
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
 }
 
@@ -299,237 +133,64 @@ main.sales-container {
   width: 24px; 
   height: 24px;
   margin-right: 12px;
-  border-radius: 4px; 
-  object-fit: contain; 
-  vertical-align: middle; 
 }
-
-
-/* =======================================================
-   FOOTER Y MENSAJE FINAL 
-========================================================== */
-
-.mensaje-final {
-  text-align: center;
-  color: #113b64;
-  font-weight: 700;
-  margin: 40px auto;
-  padding: 0 10%;
-  font-size: 18px;
-  background: none; 
-}
-
-.frase-final {
-  text-align: center;
-  background-color: #113b64;
-  color: white;
-  font-weight: 800;
-  padding: 10px 0; 
-  font-size: 22px;
-}
-div1{
-  background-color: #f5b301;
-  color: #113b64;
-  padding: 5px 40px; 
-  border-radius: 8px;
-  display: inline-block;
-  font-size: 20px;
-  margin-top: 0px;
-  font-weight: 900;
-  transition: background-color 0.2s;
-}
-div1:hover {
-  background-color: #e8a800;
-}
-
 
 /* ============================================================
-   ESTILOS PARA MÓVIL (MEDIA QUERY)
-============================================================
-*/
+   RESPONSIVE (ESPECÍFICO)
+============================================================ */
+
 @media (max-width: 768px) {
-
-  /* --- ENCABEZADO Y MENÚ  --- */
-  
-  .barra-superior { padding: 20px; justify-content: space-between; }
-  
-  /* Botón Hamburguesa */
-  .hamburger-button { 
-    display: block; 
-    position: absolute;
-    right: 20px;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 1001;
-    background: none; 
-    border: none; 
-    color: #f5b301; 
-    font-size: 32px; 
-    cursor: pointer; 
-    text-shadow: 0 0 5px rgba(245, 179, 1, 0.5); 
-  }
-  
-  .menu {
-    display: block; 
-    position: absolute;
-    top: 100px; 
-    left: auto;
-    right: 0; 
-    width: 60%;  
-    height: auto; 
-    max-height: none; 
-    
-    background-color: #113b64; 
-    z-index: 1000; 
-    border-radius:12px; 
-    border-left: 2px solid #f5b301; 
-    box-shadow: -8px 8px 25px rgba(0, 0, 0, 0.8); 
-    
-    transform: translateX(100%); 
-    visibility: hidden;
-    transition: transform 0.3s ease-in-out, visibility 0.3s ease-in-out; 
-    
-    overflow-y: auto; 
-    overflow-x: hidden;
-  }
-  
-  .hamburger-toggle:checked ~ .menu {
-    display: block !important; 
-    transform: translateX(0); 
-    visibility: visible;
-  }
-
-  .menu ul {
-    flex-direction: column;
-    padding: 0;
-    gap: 0;
-    background-color: transparent;
-  }
-
-  .menu li {
-    width: 100%;
-    margin-bottom: 0;
-    border-bottom: 1px solid rgba(245, 179, 1, 0.3); 
-  }
-
-  .menu li:last-child {
-      border-bottom: none;
-  }
-
-  .menu a {
-    background-color: transparent; 
-    color: white; 
-    text-align: left; 
-    display: block;
-    width: 100%;
-    padding: 25px 15px; 
-    border-radius: 0;
-    box-shadow: none;
-    box-sizing: border-box; 
-    transition: background-color 0.15s ease, color 0.15s ease; 
-  }
-
-  .menu a:hover {
-    background-color: #f5b301; 
-    color: #113b64;
-    box-shadow: none;
-  }
-
-  .menu a.active {
-    background-color: #f5b301; 
-    color: #113b64;
-    font-weight: 900;
-  }
-  
-  .frase-conocenos h2 {
-    font-size: 18px; 
-    padding: 10px 20px; 
-    width: auto; 
-    max-width: none;
-    margin: 0;
-  }
-
-  /* --- CONTENIDO "VENTAS" MÓVIL (Estilos propios) --- */
   main.sales-container {
     width: 100%; 
     padding: 20px 15px;
-    margin: 0;
-    box-sizing: border-box;
-    display: block;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra de home.css */
-    border-radius: 0; /* Reseteo de home.css */
+    border-radius: 0;
   }
 
   .category-title {
-    font-size: 18px; 
-    margin-bottom: 15px;
+    font-size: 1.2rem;
   }
   
-  /* Todas las cuadrículas tendrán 2 columnas en móvil */
   .items-grid {
-    gap: 15px; 
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+
+  .category-section:first-child .items-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 
-
-  .item-card {
-      border-radius: 8px; 
-  }
   .item-card img {
-    height: 120px; 
-    border-bottom: 2px solid #f5b301;
+    height: 150px; 
   }
 
   .item-card p {
-    font-size: 14px;
-    margin: 10px 0;
+    font-size: 0.9rem;
+    margin: 15px 5px;
   }
   
-  /* BANNER FACEBOOK MÓVIL */
   .facebook-banner {
-    padding: 20px 15px;
-    margin-top: 0px; 
-  }
-  .facebook-banner::before {
-      background-size: 120px; 
-      opacity: 0.12; 
+    padding: 30px 15px;
   }
 
   .banner-text {
-    font-size: 16px;
-    margin-bottom: 15px;
-  }
-  .facebook-button {
-    font-size: 16px;
-    padding: 12px 25px;
-  }
-  .fb-logo {
-      width: 20px;
-      height: 20px;
-      margin-right: 8px;
-  }
-  
-  /* AJUSTE PARA EL ESPACIO MÓVIL */
-  .category-facebook-link {
-    margin-bottom: 10px; /* Reducido para móvil */
+    font-size: 1rem;
   }
 
-  /* --- FOOTER MÓVIL  --- */
-  .mensaje-final { 
-    font-size: 8px; 
-    padding: 0 15px; 
-    margin: 10px auto; 
-    background-color: transparent; 
+  .facebook-button {
+    font-size: 1rem;
+    padding: 12px 20px;
   }
-  .frase-final { 
-    font-size: 18px; 
-    padding: 15px; 
-    line-height: 1.4;
-  }
-  div1{ 
-    padding: 6px 25px; 
-    font-size: 18px;
-    margin-top: 0px;
+}
+
+@media (max-width: 480px) {
+    .items-grid {
+        grid-template-columns: 1fr;
+    }
+    .category-section:first-child .items-grid {
+        grid-template-columns: 1fr;
+    }
+}
+p: 0px;
     font-weight: 900;
   }
 
