@@ -2,9 +2,10 @@
    ESTRUCTURA PRINCIPAL Y FUENTES 
 ========================================================== */
 
-html {
-  height: 100%;
-  box-sizing: border-box; 
+html, body {
+  overflow-x: hidden;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 *, *::before, *::after {
@@ -18,7 +19,6 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  overflow-x: hidden;
 }
 
 /* =======================================================
@@ -386,7 +386,8 @@ main.faq-container {
     box-shadow: -8px 8px 25px rgba(0, 0, 0, 0.8); 
     
     transform: translateX(100%); 
-    transition: transform 0.3s ease-in-out; 
+    visibility: hidden;
+    transition: transform 0.3s ease-in-out, visibility 0.3s ease-in-out; 
     
     max-height: calc(100vh - 74px); /* Limita la altura a la pantalla visible */
     overflow-y: auto; 
@@ -396,6 +397,7 @@ main.faq-container {
   .hamburger-toggle:checked ~ .menu {
     display: block !important; 
     transform: translateX(0); 
+    visibility: visible;
   }
 
   .menu ul {

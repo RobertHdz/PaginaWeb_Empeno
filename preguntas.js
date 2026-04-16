@@ -42,21 +42,18 @@ document.addEventListener('DOMContentLoaded', () => {
     const knowledgeBase = {
         
         // --- 1. LISTA DE ARTÍCULOS (Máxima Especificidad) ---
-        // Puntuación alta por las palabras de intención ("cosas", "puedo")
         "artículos_a_empeñar": {
             keywords: ['cosas puedo', 'que puedo', 'reciben', 'lista', 'articulos', 'aceptan', 'empeñar', 'empenar'],
             response: "Puedes empeñar una amplia gama de artículos de valor. Las categorías principales son: **Joyería** (oro, plata, diamantes), **Electrónicos** (celulares, laptops, consolas de modelos recientes), **Automóviles** (autos, camionetas y motos) y **Relojes de Alta Gama** (lujo). Cada artículo requiere su propia valuación y documentación."
         },
 
         // --- 2. CONCEPTO FUNDAMENTAL ---
-        // Puntuación media. Debería ganar solo si la pregunta no es sobre la lista.
         "empeño": {
             keywords: ['empeño', 'empeno', 'prestamo prendario', 'funciona', 'definicion', 'concepto'],
             response: "Un **Empeño** es un préstamo prendario: nos dejas un artículo de valor (la 'prenda') como garantía (joyas, electrónicos, autos) y a cambio te damos una cantidad de dinero. Puedes recuperar tu artículo al liquidar el préstamo (capital más intereses) dentro del plazo acordado. Es una solución financiera rápida sin revisión de Buró de Crédito."
         },
         
         // --- 3. REFRENDO (Soluciona Falla de Imagen 2) ---
-        // Esta palabra clave específica DEBE ganar la puntuación cuando está presente.
         "refrendo": {
             keywords: ['refrendo', 'renovar', 'prorroga', 'extender', 'plazo', 'refrendar'],
             response: "El **Refrendo** es la renovación de tu contrato. Pagas solo los intereses y cargos acumulados, y el plazo se extiende por otro periodo de 30 días, permitiéndote conservar tu artículo sin liquidarlo."
