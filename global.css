@@ -328,18 +328,22 @@ footer.frase-final .highlight:hover {
     }
 
     .mensaje-final {
-        font-size: 0.9rem;
-        padding: 20px 5%;
+        font-size: 0.95rem;
+        padding: 10px 8%;
+        line-height: 1.4;
+        margin-bottom: 10px;
     }
 
     footer.frase-final {
-        font-size: 18px;
-        padding: 20px;
+        font-size: 16px;
+        padding: 10px 15px;
+        line-height: 1.2;
     }
 
     footer.frase-final div1, 
     footer.frase-final .highlight {
-        font-size: 16px;
-        padding: 8px 25px;
+        font-size: 14px;
+        padding: 5px 15px;
+        margin-top: 5px;
     }
 }
