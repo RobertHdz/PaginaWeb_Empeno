@@ -213,11 +213,11 @@ header {
 .mensaje-final {
     text-align: center;
     color: var(--primary-blue);
-    font-weight: 600;
+    font-weight: 500;
     padding: 0px 10%;
     max-width: 800px;
     margin: 5px auto;
-    font-size: 13px;
+    font-size: 11px;
     line-height: 1.2;
 }
 
@@ -330,7 +330,7 @@ footer.frase-final .highlight:hover {
     }
 
     .mensaje-final {
-        font-size: 11px;
+        font-size: 10px;
         padding: 0px 8%;
         line-height: 1.1;
         margin-bottom: 5px;
