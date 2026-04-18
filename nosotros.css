@@ -107,10 +107,6 @@ main p {
 
     main p {
         font-size: 1rem;
-        text-align: left;
+        text-align: justify;
     }
 }
--weight: 900;
-  }
-
-} /* --- FIN DEL @media query --- */

@@ -214,17 +214,18 @@ header {
     text-align: center;
     color: var(--primary-blue);
     font-weight: 700;
-    padding: 40px 10%;
+    padding: 0px 10%;
     max-width: 800px;
-    margin: 0 auto;
-    font-size: 1.1rem;
+    margin: 5px auto;
+    font-size: 0.9rem;
+    line-height: 1.2;
 }
 
 footer.frase-final {
     background-color: var(--primary-blue);
     color: var(--white);
     text-align: center;
-    padding: 30px 20px;
+    padding: 15px 20px;
     font-size: 22px;
     font-weight: 800;
 }
@@ -237,7 +238,7 @@ footer.frase-final .highlight {
     border-radius: 8px;
     display: inline-block;
     font-size: 20px;
-    margin-top: 15px;
+    margin-top: 8px;
     font-weight: 900;
     transition: var(--transition);
 }
@@ -328,15 +329,15 @@ footer.frase-final .highlight:hover {
     }
 
     .mensaje-final {
-        font-size: 0.95rem;
-        padding: 10px 8%;
-        line-height: 1.4;
-        margin-bottom: 10px;
+        font-size: 0.8rem;
+        padding: 0px 8%;
+        line-height: 1.1;
+        margin-bottom: 5px;
     }
 
     footer.frase-final {
         font-size: 16px;
-        padding: 10px 15px;
+        padding: 5px 15px;
         line-height: 1.2;
     }
 
@@ -344,6 +345,6 @@ footer.frase-final .highlight:hover {
     footer.frase-final .highlight {
         font-size: 14px;
         padding: 5px 15px;
-        margin-top: 5px;
+        margin-top: 3px;
     }
 }
