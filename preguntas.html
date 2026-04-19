@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AUTO EMPEÑO LUNA - Preguntas Frecuentes</title>
-  <link rel="stylesheet" href="global.css?v=9">
-  <link rel="stylesheet" href="preguntas.css?v=9">
+  <link rel="stylesheet" href="global.css?v=12">
+  <link rel="stylesheet" href="preguntas.css?v=12">
   <script src="main.js" defer></script>
 </head>
 <body>
@@ -130,13 +130,31 @@
         </div>
     </div>
     
+    <!-- Sección de IA Potenciada -->
     <div class="ia-search-container">
-        <h3>💬 ¿Tienes otra pregunta? Pregúntale a nuestra IA</h3>
-        <div class="search-input-group">
-            <input type="text" id="ia-question-input" placeholder="Escribe tu pregunta sobre auto empeño aquí...">
-            <button id="ia-submit-button">Buscar</button>
+        <div class="ia-header">
+            <div class="ia-avatar">🤖</div>
+            <h3>LUNA: Tu Asistente Inteligente</h3>
         </div>
-        <div id="ia-response-box" class="ia-response-box" style="display: none;">
+        
+        <p style="margin-bottom: 15px; color: #555; font-size: 0.95rem;">
+            Estoy entrenada para ayudarte con cualquier duda sobre nuestro negocio. ¡Pregúntame lo que necesites!
+        </p>
+
+        <div class="ia-suggestions">
+            <span class="suggestion-tag">¿Qué puedo empeñar?</span>
+            <span class="suggestion-tag">Sucursal Hidalgo</span>
+            <span class="suggestion-tag">¿Cómo funciona el refrendo?</span>
+            <span class="suggestion-tag">Requisitos para auto</span>
+            <span class="suggestion-tag">Horarios</span>
+        </div>
+
+        <div class="search-input-group">
+            <input type="text" id="ia-question-input" placeholder="Ej: ¿Dónde está la sucursal Hidalgo?">
+            <button id="ia-submit-button">Preguntar</button>
+        </div>
+
+        <div id="ia-response-box" class="ia-response-box">
             <p id="ia-response-text"></p>
         </div>
     </div>

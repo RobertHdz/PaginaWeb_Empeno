@@ -71,72 +71,159 @@ main.faq-container {
 }
 
 /* =======================================================
-   ESTILOS PARA BUSCADOR DE IA 
+   ESTILOS PARA IA EXPERTA LUNA
 ========================================================== */
 .ia-search-container {
-    background-color: #f8f9fa; 
-    padding: 30px;
-    margin-top: 40px;
-    border-radius: 12px;
-    border: 2px solid #e9ecef;
-    box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);
+    background-color: #f0f4f8; 
+    padding: 40px 30px;
+    margin-top: 50px;
+    border-radius: 20px;
+    border: 1px solid #d1d9e6;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    position: relative;
+    overflow: hidden;
 }
 
-.ia-search-container h3 {
+.ia-search-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 6px;
+    height: 100%;
+    background: linear-gradient(to bottom, var(--primary-blue), var(--accent-yellow));
+}
+
+.ia-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.ia-avatar {
+    width: 50px;
+    height: 50px;
+    background-color: var(--primary-blue);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.ia-header h3 {
     color: var(--primary-blue);
-    font-size: 1.25rem;
-    margin-bottom: 20px;
+    font-size: 1.4rem;
+    margin: 0;
+    font-weight: 900;
+}
+
+/* Sugerencias */
+.ia-suggestions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+.suggestion-tag {
+    background-color: var(--white);
+    color: var(--primary-blue);
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    cursor: pointer;
+    border: 1px solid #ced4da;
+    transition: var(--transition);
+}
+
+.suggestion-tag:hover {
+    background-color: var(--primary-blue);
+    color: var(--white);
+    border-color: var(--primary-blue);
+    transform: translateY(-2px);
 }
 
 .search-input-group {
     display: flex;
-    gap: 15px;
+    gap: 10px;
+    background: var(--white);
+    padding: 5px;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
 }
 
 #ia-question-input {
     flex-grow: 1;
-    padding: 12px 20px;
-    border: 2px solid #ced4da;
-    border-radius: 8px;
+    padding: 15px 20px;
+    border: none;
+    border-radius: 10px;
     font-size: 1rem;
-    transition: var(--transition);
-}
-
-#ia-question-input:focus {
     outline: none;
-    border-color: var(--primary-blue);
-    box-shadow: 0 0 0 3px rgba(17, 59, 100, 0.1);
 }
 
 #ia-submit-button {
-    background-color: var(--accent-yellow);
-    color: var(--primary-blue);
+    background-color: var(--primary-blue);
+    color: var(--white);
     border: none;
-    padding: 12px 30px;
-    border-radius: 8px;
+    padding: 0 30px;
+    border-radius: 10px;
     cursor: pointer;
     font-weight: 800;
-    font-size: 1rem;
     transition: var(--transition);
 }
 
 #ia-submit-button:hover:not(:disabled) { 
-    background-color: var(--accent-yellow-dark);
-    transform: translateY(-2px);
+    background-color: #0d2a4a;
+    transform: scale(1.02);
 }
 
+#ia-submit-button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+/* Caja de Respuesta IA */
 .ia-response-box {
-    margin-top: 25px;
-    padding: 20px;
+    margin-top: 30px;
+    padding: 25px;
     background-color: var(--white);
-    border-left: 5px solid var(--primary-blue);
-    border-radius: 8px;
-    box-shadow: var(--shadow);
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    border-left: 6px solid var(--accent-yellow);
+    display: none;
+    animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+#ia-response-text {
+    color: #333;
+    font-size: 1.05rem;
+    line-height: 1.7;
+    margin: 0;
+}
+
+/* Efecto Typing (Cursor) */
+.typing::after {
+    content: '|';
+    animation: blink 0.7s infinite;
+}
+
+@keyframes blink {
+    50% { opacity: 0; }
 }
 
 /* ============================================================
    RESPONSIVE (ESPECÍFICO)
-============================================================ */
+   ============================================================ */
+
 
 @media (max-width: 768px) {
     main.faq-container {
