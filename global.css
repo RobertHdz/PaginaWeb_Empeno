@@ -211,14 +211,16 @@ header {
    FOOTER
    ========================================================== */
 .mensaje-final {
+    background-color: #eeeeee; /* Gris muy claro para separación */
     text-align: center;
     color: var(--primary-blue);
     font-weight: 500;
-    padding: 0px 10%;
-    max-width: 800px;
-    margin: 5px auto;
+    padding: 10px 10%;
+    margin: 0;
     font-size: 11px;
     line-height: 1.2;
+    border-top: 1px solid #ddd;
+    width: 100%;
 }
 
 footer.frase-final {
@@ -331,9 +333,9 @@ footer.frase-final .highlight:hover {
 
     .mensaje-final {
         font-size: 10px;
-        padding: 0px 8%;
+        padding: 10px 8%;
         line-height: 1.1;
-        margin-bottom: 5px;
+        margin-bottom: 0;
     }
 
     footer.frase-final {

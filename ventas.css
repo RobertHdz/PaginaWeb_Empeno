@@ -190,8 +190,3 @@ main.sales-container {
         grid-template-columns: 1fr;
     }
 }
-p: 0px;
-    font-weight: 900;
-  }
-
-} /* --- FIN DEL @media query --- */
