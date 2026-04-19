@@ -71,8 +71,8 @@ document.addEventListener('DOMContentLoaded', () => {
         button.disabled = true;
 
         try {
-            // Llamada al nuevo backend de IA real (temporalmente directo al puerto 3001)
-            const response = await fetch('http://148.244.118.25:3001/api/chat', {
+            // Llamada al nuevo backend de IA real (a través de Proxy Inverso en Apache)
+            const response = await fetch('/api/chat', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ message: question })
