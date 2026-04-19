@@ -136,6 +136,24 @@ main {
   transform: scale(1.05);
 }
 
+/* Facebook Link Especial */
+.facebook-link {
+  background-color: #1877f2;
+  color: var(--white) !important;
+  padding: 8px 15px;
+  border-radius: 6px;
+  font-weight: 800;
+  display: inline-block !important;
+  margin-top: 5px;
+  font-size: 0.95rem;
+  transition: var(--transition);
+}
+
+.facebook-link:hover {
+  background-color: #166fe5;
+  transform: scale(1.05);
+}
+
 /* Mapas */
 .map-box {
     width: 100%;
