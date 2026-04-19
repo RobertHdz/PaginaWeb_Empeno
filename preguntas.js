@@ -101,7 +101,3 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
-andleIaSearch(tag.textContent);
-        });
-    });
-});
