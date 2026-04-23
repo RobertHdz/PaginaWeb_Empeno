@@ -98,8 +98,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 throw new Error(data.error || 'Error en el servidor de IA');
             }
 
-            // Convertir negritas de Markdown (**texto**) a HTML (<strong>texto</strong>)
-            const formattedResponse = data.response.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+            // Convertir negritas de Markdown (**texto** o *texto*) a HTML (<strong>texto</strong>)
+            let formattedResponse = data.response.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+            formattedResponse = formattedResponse.replace(/\*(.*?)\*/g, '<strong>$1</strong>');
             
             // Usar efecto de escritura con soporte para HTML
             typeEffect(responseText, formattedResponse, 10);
