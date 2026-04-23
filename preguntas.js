@@ -98,19 +98,17 @@ document.addEventListener('DOMContentLoaded', () => {
                 throw new Error(data.error || 'Error en el servidor de IA');
             }
 
-            console.log("Respuesta de Luna:", data.response); // Para ver qué envía exactamente
+            console.log("Respuesta de Luna:", data.response);
 
-            // Lógica de formateo mejorada:
+            // Lógica simplificada y efectiva:
             let formattedResponse = data.response
-                // 1. Convertir **texto** a negritas
+                // 1. Convertir **Texto** a negrita
                 .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
-                // 2. Convertir * texto (viñetas) a puntos con negrita en la primera palabra
-                .replace(/^\*\s*(.*?):/gm, '• <strong>$1:</strong>')
-                .replace(/\n\*\s*(.*?):/g, '<br>• <strong>$1:</strong>')
-                // 3. Si sobran asteriscos sueltos, convertirlos en puntos
-                .replace(/\*/g, '•');
+                // 2. Si hay un asterisco suelto seguido de negrita (como en las listas), quitar el asterisco
+                .replace(/\*\s*<strong>/g, '<strong>')
+                // 3. Convertir saltos de línea en <br> para que se vea ordenado
+                .replace(/\n/g, '<br>');
             
-            // Usar efecto de escritura con soporte para HTML
             typeEffect(responseText, formattedResponse, 10);
 
         } catch (error) {

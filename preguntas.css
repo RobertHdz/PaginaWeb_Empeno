@@ -270,3 +270,7 @@ main.faq-container {
         width: 100%;
     }
 }
+.response-text strong {
+    font-weight: 800;
+    color: #1a3a5a;
+}
