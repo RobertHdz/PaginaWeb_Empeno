@@ -98,9 +98,17 @@ document.addEventListener('DOMContentLoaded', () => {
                 throw new Error(data.error || 'Error en el servidor de IA');
             }
 
-            // Convertir negritas de Markdown (**texto** o *texto*) a HTML (<strong>texto</strong>)
-            let formattedResponse = data.response.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
-            formattedResponse = formattedResponse.replace(/\*(.*?)\*/g, '<strong>$1</strong>');
+            console.log("Respuesta de Luna:", data.response); // Para ver qué envía exactamente
+
+            // Lógica de formateo mejorada:
+            let formattedResponse = data.response
+                // 1. Convertir **texto** a negritas
+                .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+                // 2. Convertir * texto (viñetas) a puntos con negrita en la primera palabra
+                .replace(/^\*\s*(.*?):/gm, '• <strong>$1:</strong>')
+                .replace(/\n\*\s*(.*?):/g, '<br>• <strong>$1:</strong>')
+                // 3. Si sobran asteriscos sueltos, convertirlos en puntos
+                .replace(/\*/g, '•');
             
             // Usar efecto de escritura con soporte para HTML
             typeEffect(responseText, formattedResponse, 10);
