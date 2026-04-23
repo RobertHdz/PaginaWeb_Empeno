@@ -30,7 +30,6 @@ DATOS DEL NEGOCIO:
 - Seguridad: Prendas en bóvedas de alta seguridad con póliza de seguro.
 
 Responde siempre de forma concisa y útil.
-CRÍTICO: No utilices negritas (**), cursivas o cualquier otro formato Markdown. Responde solo con texto plano.
 `;
 
 app.post('/api/chat', async (req, res) => {

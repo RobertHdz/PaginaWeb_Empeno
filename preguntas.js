@@ -44,15 +44,26 @@ document.addEventListener('DOMContentLoaded', () => {
         element.innerHTML = "";
         element.classList.add('typing');
         let i = 0;
-        const timer = setInterval(() => {
+        
+        function type() {
             if (i < text.length) {
-                element.innerHTML += text.charAt(i);
-                i++;
+                if (text.charAt(i) === '<') {
+                    // Si encontramos una etiqueta HTML, la agregamos completa de golpe
+                    let tagEnd = text.indexOf('>', i);
+                    if (tagEnd !== -1) {
+                        element.innerHTML += text.substring(i, tagEnd + 1);
+                        i = tagEnd + 1;
+                    }
+                } else {
+                    element.innerHTML += text.charAt(i);
+                    i++;
+                }
+                setTimeout(type, speed);
             } else {
-                clearInterval(timer);
                 element.classList.remove('typing');
             }
-        }, speed);
+        }
+        type();
     }
 
     async function handleIaSearch(text = null) {
@@ -71,7 +82,6 @@ document.addEventListener('DOMContentLoaded', () => {
         button.disabled = true;
 
         try {
-            // Determinar la URL del API (soporte para desarrollo local y producción)
             const apiUrl = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' 
                 ? 'http://localhost:3001/api/chat' 
                 : '/api/chat';
@@ -88,7 +98,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 throw new Error(data.error || 'Error en el servidor de IA');
             }
 
-            typeEffect(responseText, data.response, 15);
+            // Convertir negritas de Markdown (**texto**) a HTML (<strong>texto</strong>)
+            const formattedResponse = data.response.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+            
+            // Usar efecto de escritura con soporte para HTML
+            typeEffect(responseText, formattedResponse, 10);
 
         } catch (error) {
             console.error("IA Error:", error);
