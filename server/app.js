@@ -55,12 +55,21 @@ app.post('/api/chat', async (req, res) => {
     } catch (error) {
         console.error("Error calling Gemini API:", error);
         
-        // Error handling for leaked/invalid keys
+        let errorMessage = "Error al procesar la pregunta con la IA";
+        let statusCode = 500;
+
         if (error.message.includes("API key was reported as leaked")) {
-            return res.status(403).json({ error: "La API Key ha sido desactivada por seguridad. Por favor, actualízala." });
+            errorMessage = "La API Key ha sido desactivada por seguridad. Por favor, actualízala.";
+            statusCode = 403;
+        } else if (error.message.includes("Too Many Requests") || error.status === 429) {
+            errorMessage = "Google está recibiendo muchas peticiones. Por favor, espera 10 segundos e intenta de nuevo.";
+            statusCode = 429;
+        } else if (error.message.includes("API key not valid")) {
+            errorMessage = "La API Key no es válida. Revisa el archivo .env en el servidor.";
+            statusCode = 401;
         }
-        
-        res.status(500).json({ error: "Error al procesar la pregunta con la IA" });
+
+        res.status(statusCode).json({ error: errorMessage });
     }
 });
 
