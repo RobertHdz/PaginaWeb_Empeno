@@ -67,25 +67,32 @@ document.addEventListener('DOMContentLoaded', () => {
         if (text) input.value = text;
 
         responseBox.style.display = 'block';
-        responseText.innerHTML = "🤖 Luna está pensando...";
+        responseText.innerHTML = "🤖 Luna está pensando<span class='loading-dots'>...</span>";
         button.disabled = true;
 
         try {
-            // Llamada al nuevo backend de IA real (a través de Proxy Inverso en Apache)
-            const response = await fetch('/api/chat', {
+            // Determinar la URL del API (soporte para desarrollo local y producción)
+            const apiUrl = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' 
+                ? 'http://localhost:3001/api/chat' 
+                : '/api/chat';
+
+            const response = await fetch(apiUrl, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ message: question })
             });
 
-            if (!response.ok) throw new Error('Error en el servidor de IA');
-
             const data = await response.json();
+
+            if (!response.ok) {
+                throw new Error(data.error || 'Error en el servidor de IA');
+            }
+
             typeEffect(responseText, data.response, 15);
 
         } catch (error) {
             console.error("IA Error:", error);
-            responseText.innerHTML = "Lo siento, tuve un problema de conexión. Por favor, intenta de nuevo o llama al **664 589 7356**.";
+            responseText.innerHTML = `⚠️ <strong>Error:</strong> ${error.message}<br><br>Por favor, intenta de nuevo o llama al **664 589 7356**.`;
         } finally {
             button.disabled = false;
         }

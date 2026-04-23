@@ -1,7 +1,8 @@
 const express = require('express');
 const cors = require('cors');
 const { GoogleGenerativeAI } = require('@google/generative-ai');
-require('dotenv').config();
+const path = require('path');
+require('dotenv').config({ path: path.join(__dirname, '.env') });
 
 const app = express();
 app.use(cors());
@@ -39,14 +40,12 @@ app.post('/api/chat', async (req, res) => {
     }
 
     try {
-        const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash" });
-        
-        const chat = model.startChat({
-            history: [
-                { role: "user", parts: [{ text: SYSTEM_PROMPT }] },
-                { role: "model", parts: [{ text: "Entendido. Soy Luna, la asistente oficial de Auto Empeño Luna. ¿En qué puedo ayudarte hoy?" }] },
-            ]
+        const model = genAI.getGenerativeModel({ 
+            model: "gemini-1.5-flash",
+            systemInstruction: SYSTEM_PROMPT 
         });
+        
+        const chat = model.startChat();
 
         const result = await chat.sendMessage(message);
         const response = await result.response;
@@ -55,6 +54,12 @@ app.post('/api/chat', async (req, res) => {
         res.json({ response: text });
     } catch (error) {
         console.error("Error calling Gemini API:", error);
+        
+        // Error handling for leaked/invalid keys
+        if (error.message.includes("API key was reported as leaked")) {
+            return res.status(403).json({ error: "La API Key ha sido desactivada por seguridad. Por favor, actualízala." });
+        }
+        
         res.status(500).json({ error: "Error al procesar la pregunta con la IA" });
     }
 });
